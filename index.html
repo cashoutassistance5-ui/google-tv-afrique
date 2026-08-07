@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espace membre — GOOGLE TV AFRIQUE</title>
-<meta name="description" content="Votre espace membre GOOGLE TV AFRIQUE : vidéos, gains, retraits.">
+<title>GOOGLE TV AFRIQUE — Regardez des vidéos. Gagnez de l'argent.</title>
+<meta name="description" content="Plateforme africaine de streaming vidéo. Inscription gratuite, packs d'activation, retraits en FCFA.">
 <style>
 :root{
   --bg:#0a0d13;
@@ -578,333 +578,225 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
   .main-burger span{width:18px;height:2px;background:currentColor;border-radius:2px;margin:2px 0}
 }
 
-.m-app{max-width:900px;margin:0 auto;padding:0 14px 70px}
-/* ---- en-tête : logo à gauche, solde en haut à droite (#f59e0b) ---- */
-.m-top{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(10,13,19,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 16px;margin:0 -14px 0}
-.m-logo{display:flex;align-items:center;gap:9px;min-width:0}
-.m-logo-badge{width:34px;height:34px;flex-shrink:0;background:var(--grad);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;box-shadow:0 5px 14px -4px rgba(234,67,53,.7)}
-.m-logo-txt{font-weight:800;font-size:.98rem;letter-spacing:.01em;white-space:nowrap;color:var(--text)}
-.m-logo-txt b{color:var(--red-l)}
-.m-logo-txt em{font-style:normal;font-weight:700;color:var(--muted);font-size:.68rem}
-.m-right{display:flex;align-items:center;gap:10px}
-.m-bal{text-align:right;line-height:1.15}
-.m-bal span{display:block;font-size:.6rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.09em}
-.m-bal b{font-size:1.12rem;font-weight:800;color:#f59e0b;white-space:nowrap}
-.m-logout{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--muted);width:38px;height:38px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
-.m-logout svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.m-logout:hover{color:var(--red-l);border-color:var(--red-l);background:rgba(234,67,53,.08)}
-.m-bal b{display:flex;align-items:center;gap:5px;font-size:1.18rem}
-.m-badge-nb{position:relative}
-.m-badge-nb .nb{position:absolute;top:-7px;right:-9px;background:var(--red);color:#fff;font-size:.58rem;font-weight:800;border-radius:99px;min-width:17px;height:17px;display:flex;align-items:center;justify-content:center;padding:0 4px;box-shadow:0 3px 8px rgba(234,67,53,.5)}
-/* ---- menu horizontal ---- */
-.m-nav{display:flex;gap:8px;margin:16px 0 18px;flex-wrap:wrap}
-.m-nav a,.m-nav button{display:inline-flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 18px;font-size:.88rem;font-weight:700;color:var(--muted);cursor:pointer;transition:.2s;text-decoration:none}
-.m-nav a:hover,.m-nav button:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
-.m-nav .on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px -6px rgba(234,67,53,.55)}
-.m-nav a svg,.m-nav button svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-/* ---- filtres catégories (pilules) ---- */
-.cat-filter{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 16px}
-.cat-pill{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;transition:.2s}
-.cat-pill:hover{color:var(--text)}
-.cat-pill.on{background:var(--grad);color:#fff;border-color:transparent}
-/* ---- grille vidéos : 2 colonnes mobile, 3 sur tablette, 4 sur grand écran ---- */
-.m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(min-width:640px){.m-grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.m-grid{grid-template-columns:repeat(4,1fr)}}
-.load-more-row{display:flex;flex-direction:column;align-items:center;gap:10px;margin:24px 0 8px}
-.video-counter{font-size:.85rem;font-weight:700;color:var(--muted);text-align:center}
-.video-counter.done{color:#4ade80;font-weight:800}
-.m-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;min-width:0}
-.m-card:hover{transform:translateY(-3px);border-color:rgba(234,67,53,.45)}
-.m-thumb{position:relative;height:118px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;background:#141a27}
-.m-thumb .m-emoji{font-size:2.1rem;opacity:.5;z-index:0}
-.m-thumb img.m-thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;display:block}
-.m-thumb .m-gain,.m-thumb .m-cat,.m-thumb .m-seen{z-index:2}
-.m-gain{position:absolute;left:8px;bottom:8px;background:var(--grad-gold);color:#141414;font-weight:800;font-size:.7rem;padding:4px 10px;border-radius:99px;box-shadow:0 4px 10px rgba(0,0,0,.4);white-space:nowrap}
-.m-cat{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.58);color:#e2e8f0;font-size:.6rem;font-weight:800;padding:3px 8px;border-radius:99px;letter-spacing:.04em;backdrop-filter:blur(3px)}
-.m-seen{position:absolute;left:8px;top:8px;background:rgba(52,199,89,.92);color:#fff;font-size:.6rem;font-weight:800;padding:4px 9px;border-radius:99px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.3)}
-.m-title{padding:10px 12px 4px;font-size:.8rem;font-weight:700;line-height:1.35;min-height:34px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-/* ---- 3 boutons d'action : J'aime / Déjà vu / Favoris ---- */
-.m-actions{display:flex;gap:6px;padding:8px 10px 11px;margin-top:auto}
-.m-act{flex:1;min-width:0;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);border-radius:10px;padding:8px 2px;font-size:.62rem;font-weight:800;cursor:pointer;transition:all .18s ease;white-space:nowrap;font-family:inherit}
-.m-act .m-ico{font-size:1rem;line-height:1;transition:transform .18s ease}
-.m-act:hover{color:var(--text);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.07)}
-.m-act:hover .m-ico{transform:scale(1.18)}
-.m-act:active .m-ico{transform:scale(.85)}
-.m-act.pop{animation:actPop .35s ease}
-@keyframes actPop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
-/* état actif — J'aime (rose) */
-.m-act.like.on{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;border-color:transparent;box-shadow:0 5px 12px -4px rgba(236,72,153,.55)}
-.m-act.like.on .m-ico{animation:heartBeat .5s ease}
-@keyframes heartBeat{0%{transform:scale(1)}30%{transform:scale(1.35)}60%{transform:scale(.95)}100%{transform:scale(1)}}
-/* état actif — Déjà vu (bleu) */
-.m-act.seen.on{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-color:transparent;box-shadow:0 5px 12px -4px rgba(59,130,246,.55)}
-/* état actif — Favoris (ambre) */
-.m-act.fav.on{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-color:transparent;box-shadow:0 5px 12px -4px rgba(245,158,11,.55)}
-/* ---- onglets Mon Compte ---- */
-.subtabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-.subtab{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 15px;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;transition:.2s}
-.subtab.on{background:rgba(234,67,53,.12);color:var(--red-l);border-color:rgba(234,67,53,.4)}
-.sub-view{display:none}
-.sub-view.on{display:block;animation:fadeIn .25s ease}
-.greeting{font-size:1.02rem;font-weight:800;margin:2px 0 4px}
-.greeting small{display:block;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:2px}
-.profile-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:18px}
-.avatar-big{width:88px;height:88px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-size:1.9rem;font-weight:800;color:#fff;margin:0 auto 14px}
-.profile-card{text-align:center}
-.profile-card .info{display:grid;gap:11px;margin-top:18px;text-align:left}
-.profile-card .info div{display:flex;justify-content:space-between;font-size:.84rem;border-bottom:1px solid var(--line);padding-bottom:9px;gap:10px}
-.profile-card .info span{color:var(--muted)}
-.pack-chip{display:inline-flex;align-items:center;gap:7px;background:var(--grad-gold);color:#141414;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:99px;margin-top:8px}
-.notif-alert{display:flex;gap:12px;align-items:flex-start;border-radius:14px;padding:15px 17px;margin-bottom:18px;border:1px solid;font-size:.86rem;cursor:pointer;transition:.2s}
-.notif-alert:hover{transform:translateY(-2px)}
-.notif-alert .na-ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;font-size:1.05rem}
-.notif-alert b{display:block;font-size:.9rem}
-.notif-alert p{margin:2px 0 0;font-size:.82rem;opacity:.9}
-.notif-alert .na-date{font-size:.7rem;opacity:.7;margin-top:4px}
-.notif-alert.maint{background:rgba(249,171,0,.1);border-color:rgba(249,171,0,.42)}
-.notif-alert.maint .na-ico{background:rgba(249,171,0,.15)}
-.notif-alert.general{background:rgba(74,168,255,.1);border-color:rgba(74,168,255,.35)}
-.notif-alert.general .na-ico{background:rgba(74,168,255,.15)}
-.notif-alert.update{background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.35)}
-.notif-alert.update .na-ico{background:rgba(168,85,247,.15)}
-.pack-choice{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-.pack-mini{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:.2s}
-.pack-mini:hover,.pack-mini.sel{border-color:var(--red);background:rgba(234,67,53,.05)}
-.pack-mini h4{font-size:.78rem;font-weight:800;letter-spacing:.04em;color:var(--muted)}
-.pack-mini .price{font-size:1.15rem;font-weight:800;margin:6px 0 2px}
-.pack-mini .pv{font-size:.66rem;color:var(--muted);font-weight:700}
-.level-list{display:grid;gap:10px;margin-top:12px}
-.level{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 15px;cursor:pointer;transition:.2s}
-.level:hover,.level.sel{border-color:var(--red);background:rgba(234,67,53,.05)}
-.level .l-name{font-weight:700;font-size:.88rem}
-.level .l-price{font-weight:800;color:var(--red-l)}
-.level .radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--muted);flex-shrink:0;display:grid;place-items:center}
-.level.sel .radio{border-color:var(--red)}
-.level.sel .radio::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
-.withdraw-box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}
-.w-prog{height:11px;margin-top:6px}
-.w-prog i{background:linear-gradient(135deg,#f59e0b,#22c55e);transition:width .6s ease}
-.w-prog-label{font-size:.72rem;color:var(--muted);font-weight:800;text-align:right}
-/* ---- récompense + crédit automatique dans le lecteur ---- */
-.pm-reward{display:flex;align-items:center;gap:8px;background:rgba(249,171,0,.12);border:1px solid rgba(249,171,0,.4);color:var(--amber);border-radius:12px;padding:11px 14px;margin-top:12px;font-size:.9rem;font-weight:700}
-.pm-reward b{font-size:1.05rem;color:#fbbf24}
-.pm-reward.done{background:rgba(52,199,89,.12);border-color:rgba(52,199,89,.4);color:#4ade80}
-.pm-reward.done b{color:#4ade80}
-.pm-count{font-size:.82rem;font-weight:800;color:var(--text);margin-top:12px;text-align:center}
-.pm-count.ok{color:#4ade80}
-.pm-prog{margin-top:8px}
-.pm-prog i{transition:width 1s linear}
-.gate-screen{max-width:600px;margin:70px auto 0;text-align:center;padding:0 12px;overflow:hidden}
-.gate-screen .pending-msg{overflow-wrap:anywhere;word-break:break-word;width:100%;max-width:100%;overflow:hidden;padding:4px 2px}
-.gate-screen .g-ico{width:84px;height:84px;border-radius:24px;background:var(--grad);display:grid;place-items:center;margin:0 auto 24px;box-shadow:0 18px 40px -12px rgba(234,67,53,.7)}
-.gate-screen .g-ico svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@media(max-width:560px){
-  .m-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .m-thumb{height:100px}
-  .m-title{font-size:.74rem;padding:8px 10px 2px;min-height:30px}
-  .m-actions{gap:5px;padding:7px 8px 10px}
-  .m-act{font-size:.58rem;padding:7px 2px}
-  .m-act .m-ico{font-size:.9rem}
-  .m-gain{font-size:.62rem;padding:3px 8px}
-  .m-cat{font-size:.55rem}
-  .m-seen{font-size:.55rem;padding:3px 7px}
-  .profile-grid{grid-template-columns:1fr}
-  .pack-choice{grid-template-columns:1fr}
-}
+.video-grid .video-card{animation:none}
 </style>
 </head>
-<body data-page="membre">
-
-<div class="m-app">
-  <header class="m-top">
-    <div class="m-logo">
-      <span class="m-logo-badge">▶</span>
-      <span class="m-logo-txt">GOOGLE <b>TV</b> <em>AFRIQUE</em></span>
+<body data-page="index">
+<header id="siteHeader"><div class="container nav">
+<a class="logo" href="index.html">
+  <span class="logo-badge"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-9.52-5.86A1 1 0 0 0 8 5.14Z"/></svg></span>
+  <span class="logo-text">GOOGLE <em>TV</em> <b>AFRIQUE</b></span>
+</a>
+<nav class="nav-links"><a href="index.html" data-nav="index">Accueil</a><a href="a-propos.html" data-nav="a-propos">À propos</a><a href="fonctionnement.html" data-nav="fonctionnement">Fonctionnement</a><a href="packs.html" data-nav="packs">Packs d'activation</a><a href="temoignages.html" data-nav="temoignages">Témoignages</a><a href="faq.html" data-nav="faq">FAQ</a><a href="contact.html" data-nav="contact">Contact</a></nav><div class="nav-cta"><a class="btn btn-ghost" href="connexion.html">Connexion</a><a class="btn btn-primary" href="inscription.html">Inscription</a><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></header>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge-hero"><span class="dot"></span> Plateforme africaine de streaming · 100 % FCFA</span>
+      <h1>Regardez des vidéos.<br><span class="grad-text">Gagnez de l'argent.</span></h1>
+      <p class="hero-sub">GOOGLE TV AFRIQUE vous donne accès à une bibliothèque de 150 vidéos en streaming — divertissement, éducation, sport, musique — avec des récompenses de 5 000 à 26 000 FCFA par vidéo regardée.</p>
+      <div class="hero-btns">
+        <a href="inscription.html" class="btn btn-primary btn-lg">Créer mon compte</a>
+        <a href="fonctionnement.html" class="btn btn-ghost btn-lg">Voir comment ça marche</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Inscription gratuite</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Activation par l'administrateur</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Packs dès 5 200 FCFA</div>
+      </div>
     </div>
-    <div class="m-right">
-      <div class="m-bal"><span>Solde total</span><b id="mBalance">💰 0 F</b></div>
-      <button class="m-logout" id="mLogout" title="Se déconnecter" aria-label="Se déconnecter">
-        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-      </button>
+    <div class="hero-visual">
+      <div class="hero-float float-1">
+        <div class="f-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
+        <div><div class="f-t">Pack activé</div><div class="f-s">Paiement validé ✓</div></div>
+      </div>
+      <div class="player">
+        <div class="player-top"><span class="live"><span class="dot"></span> EN DIRECT</span><span>32 400 spectateurs</span></div>
+        <div class="player-screen">
+          <span class="big-em">🎬</span>
+          <button class="big-play" aria-label="Lire"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-11-6.86A1 1 0 0 0 8 5.14Z"/></svg></button>
+        </div>
+        <div class="player-bottom">
+          <b>Grande finale : le meilleur du cinéma africain</b>
+          <div class="prog"><i></i></div>
+          <div class="player-stats"><span>👍 4 210</span><span>▶ 82 104 vues</span><span>⏱ 8 min 24 s</span></div>
+        </div>
+      </div>
+      <div class="hero-float float-2">
+        <div class="f-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div><div class="f-t">+12 000 FCFA</div><div class="f-s">Récompense vidéo (5 000 – 26 000)</div></div>
+      </div>
     </div>
-  </header>
-
-  <div class="gate-screen" id="gateScreen" style="display:none">
-    <div class="g-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-    <h2>Connexion requise</h2>
-    <p class="sec-sub" style="margin:12px auto 26px">Vous devez être connecté pour accéder à votre espace membre.</p>
-    <a href="connexion.html" class="btn btn-primary btn-lg">Se connecter</a>
   </div>
+</section>
 
-  <div class="gate-screen" id="pendingScreen" style="display:none">
-    <div class="g-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-    <h2>Compte en attente d'activation</h2>
-    <p class="sec-sub pending-msg" style="margin:12px auto 22px">Votre compte est actuellement en attente d'activation. Pour finaliser votre inscription et accéder à votre espace membre, veuillez contacter notre service client sur WhatsApp au <b style="color:#4ade80">+2250565564257</b> afin de procéder au règlement des frais d'activation. Après vérification de votre paiement par notre équipe, votre compte sera activé et vous pourrez accéder aux fonctionnalités de la plateforme.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-wa btn-lg" href="https://wa.me/2250565564257?text=Bonjour%2C%20je%20souhaite%20r%C3%A9gler%20les%20frais%20d%27activation%20de%20mon%20compte%20GOOGLE%20TV%20AFRIQUE." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Contacter le service client sur WhatsApp</a>
-      <a href="index.html" class="btn btn-ghost">Retour à l'accueil</a>
-    </div>
-    <p class="sec-sub" style="margin-top:26px;font-size:.8rem">Dès que votre compte sera activé par l'administrateur, vous serez redirigé automatiquement vers l'interface principale. ⏳</p>
-  </div>
-
-  <div id="appShell" style="display:none">
-    <nav class="m-nav">
-      <button data-v="accueil" class="on"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Accueil</button>
-      <button data-v="favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Favoris</button>
-      <button data-v="compte" class="m-badge-nb"><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mon Compte<span class="nb" id="navNotifBadge" style="display:none"></span></button>
-      <a href="admin.html"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Admin</a>
-    </nav>
-
-    <div class="view" id="view-accueil">
-      <div id="notifAlert" style="display:none"></div>
-      <div class="greeting">Bonjour, <span id="wName">…</span> 👋<small>Regardez des vidéos et cumulez vos gains. Chaque vidéo vue = récompense !</small></div>
-      <div class="cat-filter" id="vCats"></div>
-      <!-- Grille des vidéos : juste en dessous du texte de bienvenue, 2 colonnes sur mobile -->
-      <div class="m-grid" id="videos-grid"></div>
-      <div class="load-more-row" id="loadMoreRow" style="display:none">
-        <div class="video-counter" id="videoCounter">Affichage de 0 sur 150 vidéos</div>
-        <button class="btn btn-ghost" id="loadMoreBtn">Charger plus de vidéos</button>
-      </div>
-    </div>
-
-    <div class="view" id="view-favoris">
-      <h3 style="margin-bottom:16px">Mes favoris <span id="favCount" style="color:var(--muted);font-size:.9rem"></span></h3>
-      <div class="m-grid" id="favGrid"></div>
-      <div class="center" id="favEmpty" style="display:none;margin-top:40px"><p class="sec-sub center">Vous n'avez pas encore de favoris. Ajoutez des vidéos en cliquant sur ♥.</p><a class="btn btn-primary" style="margin-top:16px" onclick="goView('accueil')">Parcourir les vidéos</a></div>
-    </div>
-
-    <div class="view" id="view-compte">
-      <div class="subtabs">
-        <button class="subtab on" data-sub="profil">Profil</button>
-        <button class="subtab" data-sub="activites">Activités</button>
-        <button class="subtab" data-sub="paiements">Paiements</button>
-        <button class="subtab" data-sub="retraits">Retraits</button>
-        <button class="subtab" data-sub="notifs">Notifications</button>
-      </div>
-
-      <div class="sub-view on" id="sub-profil">
-        <div class="profile-grid">
-          <div class="panel profile-card">
-            <div class="avatar-big" id="pAvatar">?</div>
-            <h3 id="pNom">…</h3>
-            <p class="p-sub" id="pPays">…</p>
-            <span class="pack-chip" id="pPackChip">Pack : —</span>
-            <div class="info">
-              <div><span>Téléphone</span><b id="pTel">…</b></div>
-              <div><span>E-mail</span><b id="pEmail">…</b></div>
-              <div><span>Statut</span><b id="pStatut">…</b></div>
-              <div><span>Membre depuis</span><b id="pDate">…</b></div>
-            </div>
-          </div>
-          <div>
-            <div class="panel">
-              <h3>Modifier le profil</h3>
-              <p class="p-sub">Mettez à jour vos informations personnelles.</p>
-              <form id="editForm" novalidate>
-                <div class="field"><label>Nom complet <span class="req">*</span></label><input type="text" id="eNom"></div>
-                <div class="row-2">
-                  <div class="field"><label>Téléphone <span class="req">*</span></label><input type="tel" id="eTel"></div>
-                  <div class="field"><label>Pays</label><div class="cselect" id="ePays"><button type="button" class="select-btn"><span class="flag sel-flag">🇧🇯</span><span class="txt sel-text">Bénin</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="select-dropdown"><div class="select-search"><input type="text" placeholder="Rechercher un pays africain..."></div><div class="select-list"></div></div></div></div>
-                </div>
-                <div class="field"><label>E-mail <span class="req">*</span></label><input type="email" id="eEmail"></div>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-              </form>
-            </div>
-            <div class="panel">
-              <h3>Changer le mot de passe</h3>
-              <p class="p-sub">Utilisez un mot de passe fort.</p>
-              <form id="mdpForm" novalidate>
-                <div class="field" id="f-opwd"><label>Mot de passe actuel <span class="req">*</span></label><input type="password" id="oPwd"><div class="err-msg">Mot de passe actuel incorrect.</div></div>
-                <div class="row-2">
-                  <div class="field" id="f-npwd"><label>Nouveau <span class="req">*</span></label><input type="password" id="nPwd"><div class="err-msg">Minimum 6 caractères.</div></div>
-                  <div class="field" id="f-cpwd"><label>Confirmer <span class="req">*</span></label><input type="password" id="cPwd"><div class="err-msg">Les mots de passe ne correspondent pas.</div></div>
-                </div>
-                <button type="submit" class="btn btn-primary">Changer le mot de passe</button>
-              </form>
-            </div>
-            <div class="panel" id="packPanel">
-              <h3>Mon pack d'activation</h3>
-              <div id="packStatusBox"></div>
-              <div id="packChoiceZone" style="display:none">
-                <div class="pack-choice" id="packChoice">
-                  <div class="pack-mini" data-gamme="STANDARD" onclick="pickGamme('STANDARD')"><h4>STANDARD</h4><div class="price">5 200 <small>F</small></div><div class="pv">5 niveaux</div></div>
-                  <div class="pack-mini" data-gamme="PREMIUM" onclick="pickGamme('PREMIUM')"><h4>PREMIUM</h4><div class="price">40 700 <small>F</small></div><div class="pv">5 niveaux VIP</div></div>
-                  <div class="pack-mini" data-gamme="GOLD" onclick="pickGamme('GOLD')"><h4>GOLD</h4><div class="price">200 000 <small>F</small></div><div class="pv">4 niveaux G-VIP</div></div>
-                </div>
-                <div id="levelZone" style="display:none">
-                  <h3 style="margin:16px 0 6px" id="levelTitle">Choisissez votre niveau</h3>
-                  <div class="level-list" id="levelList"></div>
-                  <button class="btn btn-primary" id="confirmPack" style="margin-top:14px" onclick="confirmPackPay()">Payer mon pack</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub-view" id="sub-activites">
-        <div class="panel">
-          <h3>Historique d'activités</h3>
-          <p class="p-sub">Toutes vos actions (vidéos regardées, J'aime, favoris, partages, paiements, retraits…) sont enregistrées automatiquement dans votre compte.</p>
-          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Action</th><th>Détail</th><th>Montant</th><th>Date</th></tr></thead><tbody id="activitesBody"></tbody></table></div>
-        </div>
-      </div>
-
-      <div class="sub-view" id="sub-paiements">
-        <div class="panel">
-          <h3>Historique des paiements</h3>
-          <p class="p-sub">Tous vos paiements (pack, déblocage de vidéos) et leurs statuts.</p>
-          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Référence</th><th>Description</th><th>Montant</th><th>Date</th><th>Statut</th></tr></thead><tbody id="paiementsBody"></tbody></table></div>
-        </div>
-      </div>
-
-      <div class="sub-view" id="sub-retraits">
-        <div class="withdraw-box">
-          <h3>Retirer mes gains</h3>
-          <p class="p-sub" style="margin:6px 0 14px">Seuil minimum de retrait : <b style="color:var(--red-l)">450 000 FCFA</b></p>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--muted);font-weight:700;margin-bottom:6px"><span>Votre solde : <b style="color:var(--text);font-size:1.05rem" id="wSolde">0 F</b></span><span id="wRest">…</span></div>
-          <!-- Barre de progression vers le seuil -->
-          <div class="w-prog-label" id="wProgLabel">0% du seuil de retrait atteint</div>
-          <div class="progress w-prog"><i id="wProg" style="width:0%"></i></div>
-          <!-- Bouton toujours accessible -->
-          <button class="btn btn-gold btn-block" id="openWithdrawBtn" style="margin-top:18px">Retirer mes gains</button>
-        </div>
-        <div class="panel">
-          <h3>Historique des retraits</h3>
-          <p class="p-sub">Chaque demande est examinée par l'administrateur. Vous serez notifié à chaque changement de statut.</p>
-          <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Référence</th><th>Montant</th><th>Téléphone</th><th>Date</th><th>Statut</th></tr></thead><tbody id="retraitsBody"></tbody></table></div>
-        </div>
-      </div>
-
-      <div class="sub-view" id="sub-notifs">
-        <div class="panel">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><h3>Notifications</h3><button class="act-btn act-blue" onclick="markAllRead()">Tout marquer comme lu</button></div>
-          <p class="p-sub">Suivez l'activation de votre compte, vos paiements, retraits et annonces de la plateforme.</p>
-          <div class="notif-list" id="notifList"></div>
-        </div>
-      </div>
-    </div>
+<div class="stats-strip">
+  <div class="container stats-grid">
+    <div class="stat"><b><span class="count" data-count="25000">0</span>+</b><span>Membres inscrits</span></div>
+    <div class="stat"><b><span class="count" data-count="150">0</span></b><span>Vidéos disponibles</span></div>
+    <div class="stat"><b><span class="count" data-count="14">0</span></b><span>Packs d'activation</span></div>
+    <div class="stat"><b><span class="count" data-count="54">0</span></b><span>Pays africains</span></div>
   </div>
 </div>
 
-<div class="modal-veil" id="playerModal">
-  <div class="modal player-modal">
-    <h3>Lecture de la vidéo <button class="m-x" onclick="closePlayer()">✕</button></h3>
-    <div class="m-screen" id="pmScreen"><span class="big-em" id="pmEmoji">🎬</span></div>
-    <div class="m-info">
-      <h3 id="pmTitle">…</h3>
-      <p id="pmMeta" style="font-size:.8rem;color:var(--muted)">…</p>
-      <!-- Récompense affichée + crédit automatique (15-30 s) -->
-      <div class="pm-reward" id="pmReward">💰 Récompense : <b>+0 F</b></div>
-      <p class="pm-count" id="pmCount" style="display:none">Crédit automatique dans 20 s</p>
-      <div class="progress pm-prog" id="pmProgWrap" style="display:none"><i id="pmProg" style="width:0%"></i></div>
-      <p id="pmGain" style="font-size:.85rem;font-weight:700;color:#4ade80;margin-top:8px">…</p>
-      <p id="pmDesc" style="margin-top:10px">…</p>
+<section id="fonctionnement">
+  <div class="container">
+    <div class="center">
+      <span class="sec-tag">Fonctionnement</span>
+      <h2 class="sec-title">Comment ça marche&nbsp;?</h2>
+      <p class="sec-sub">Un parcours simple et sécurisé, en 4 étapes.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal"><span class="step-num">01</span><div class="step-ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Créez un compte</h3><p>Inscription gratuite en moins de 2 minutes avec votre téléphone et votre e-mail.</p></div>
+      <div class="step reveal"><span class="step-num">02</span><div class="step-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Compte activé</h3><p>L'administrateur vérifie vos informations et active votre compte. Vous recevez une notification.</p></div>
+      <div class="step reveal"><span class="step-num">03</span><div class="step-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Accès à toutes les fonctionnalités</h3><p>Dès l'activation, accédez au tableau de bord, aux 150 vidéos et à tout votre espace. Le pack (optionnel) débloque des bonus.</p></div>
+      <div class="step reveal"><span class="step-num">04</span><div class="step-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></svg></div><h3>Regardez &amp; gagnez</h3><p>Accédez à la bibliothèque de vidéos, regardez, partagez, et accumulez vos gains.</p></div>
+    </div>
+    <div class="center" style="margin-top:42px"><a href="fonctionnement.html" class="btn btn-ghost">Voir le fonctionnement détaillé</a></div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);border-block:1px solid var(--line)" id="packs-preview">
+  <div class="container">
+    <div class="center">
+      <span class="sec-tag">Packs d'activation</span>
+      <h2 class="sec-title">Choisissez votre pack</h2>
+      <p class="sec-sub">Trois gammes, 14 niveaux. Le paiement est sécurisé et validé par l'administrateur.</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack reveal">
+        <h3>STANDARD</h3><p class="p-desc">L'essentiel pour commencer</p>
+        <div class="pack-price">5 200 <small>FCFA</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Accès à la bibliothèque de vidéos</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>5 niveaux au choix (jusqu'à 30 000 FCFA)</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gains sur visionnage</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Support standard</li>
+        </ul>
+        <a href="packs.html" class="btn btn-ghost">Découvrir</a>
+      </div>
+      <div class="pack featured reveal">
+        <span class="pack-tag">LE PLUS CHOISI</span>
+        <h3>PREMIUM</h3><p class="p-desc">Pour les membres actifs</p>
+        <div class="pack-price">40 700 <small>FCFA</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tout le pack Standard</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Streaming haute qualité</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gains majorés + bonus</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Support prioritaire 24/7</li>
+        </ul>
+        <a href="packs.html" class="btn btn-primary">Découvrir</a>
+      </div>
+      <div class="pack reveal">
+        <h3>GOLD</h3><p class="p-desc">L'expérience ultime</p>
+        <div class="pack-price">200 000 <small>FCFA</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tout le pack Premium</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Contenus exclusifs &amp; avant-premières</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gains maximums + commissions</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Conseiller dédié</li>
+        </ul>
+        <a href="packs.html" class="btn btn-gold">Découvrir</a>
+      </div>
+    </div>
+    <div class="center" style="margin-top:38px"><a href="packs.html" class="btn btn-primary btn-lg">Voir tous les packs</a></div>
+  </div>
+</section>
+
+<section id="videos-preview">
+  <div class="container">
+    <div class="center">
+      <span class="sec-tag">Bibliothèque</span>
+      <h2 class="sec-title">Des vidéos pour tous les goûts</h2>
+      <p class="sec-sub">Film, musique, sport, cuisine… et bien plus.</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal"><div class="video-thumb" style="background:linear-gradient(135deg,#ea4335,#7a1c14)"><span>🎬</span><span class="dur">8 min</span></div><div class="video-info"><b>Les secrets du cinéma nigérian</b><div class="video-meta"><span>▶ 48 213 vues</span><span>Film</span></div></div></div>
+      <div class="video-card reveal"><div class="video-thumb" style="background:linear-gradient(135deg,#a855f7,#581c87)"><span>🎤</span><span class="dur">18 min</span></div><div class="video-info"><b>Concert live : Afrobeats 2026</b><div class="video-meta"><span>▶ 67 320 vues</span><span>Musique</span></div></div></div>
+      <div class="video-card reveal"><div class="video-thumb" style="background:linear-gradient(135deg,#22d3ee,#155e75)"><span>⚽</span><span class="dur">7 min</span></div><div class="video-info"><b>Football : les plus beaux buts</b><div class="video-meta"><span>▶ 82 104 vues</span><span>Sport</span></div></div></div>
+      <div class="video-card reveal"><div class="video-thumb" style="background:linear-gradient(135deg,#f9ab00,#b45309)"><span>🍲</span><span class="dur">5 min</span></div><div class="video-info"><b>Cuisine : le thiéboudienne</b><div class="video-meta"><span>▶ 28 910 vues</span><span>Cuisine</span></div></div></div>
+    </div>
+    <div class="center" style="margin-top:40px"><a href="inscription.html" class="btn btn-primary">Accéder à la bibliothèque complète</a></div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="container">
+    <div class="center">
+      <span class="sec-tag">Témoignages</span>
+      <h2 class="sec-title">Ils nous font confiance</h2>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="car-track"><div class="car-inner">
+        <div class="car-slide"><div class="testi-big"><div class="testi-avatar">A</div><div class="testi-stars">★★★★★</div><p>« J'ai commencé avec le pack Standard et je suis très satisfaite. Les vidéos sont de qualité et le support répond vite. »</p><b>Awa Dosso</b><span>🇧🇯 Bénin · 18 juillet 2026</span></div></div>
+        <div class="car-slide"><div class="testi-big"><div class="testi-avatar">I</div><div class="testi-stars">★★★★★</div><p>« Le paiement du pack a été validé en quelques heures. Plateforme sérieuse et très bien organisée. »</p><b>Ibrahim Traoré</b><span>🇨🇮 Côte d'Ivoire · 22 juillet 2026</span></div></div>
+        <div class="car-slide"><div class="testi-big"><div class="testi-avatar">J</div><div class="testi-stars">★★★★★</div><p>« Le meilleur service de vidéos que j'ai testé en Afrique. Le retrait est rapide et le support 24/7 est très réactif. »</p><b>Jean-Paul Mputu</b><span>🇨🇩 RD Congo · 1 août 2026</span></div></div>
+        <div class="car-slide"><div class="testi-big"><div class="testi-avatar">R</div><div class="testi-stars">★★★★★</div><p>« J'ai choisi le pack Gold et je ne regrette pas. Contenu premium et qualité de streaming excellente. »</p><b>Rokia Koné</b><span>🇲🇱 Mali · 3 août 2026</span></div></div>
+      </div></div>
+      <div class="car-dots"></div>
+      <div class="car-arrows"><button aria-label="Précédent">‹</button><button aria-label="Suivant">›</button></div>
+    </div>
+    <div class="center" style="margin-top:8px"><a href="temoignages.html" class="btn btn-ghost">Voir tous les témoignages</a></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="cta-glow"></div>
+      <h2>Prêt à rejoindre GOOGLE TV AFRIQUE&nbsp;?</h2>
+      <p>Créez votre compte gratuitement. Après l'activation par l'administrateur, accédez à toutes les fonctionnalités et commencez à regarder des vidéos.</p>
+      <a href="inscription.html" class="btn btn-primary btn-lg">Créer mon compte gratuitement</a>
     </div>
   </div>
-</div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot">
+        
+<a class="logo" href="index.html">
+  <span class="logo-badge"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-9.52-5.86A1 1 0 0 0 8 5.14Z"/></svg></span>
+  <span class="logo-text">GOOGLE <em>TV</em> <b>AFRIQUE</b></span>
+</a>
+
+        <p>La plateforme africaine de streaming qui récompense votre temps. Regardez des vidéos de qualité, choisissez votre pack, profitez.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot">
+        <h4>Plateforme</h4>
+        <a href="index.html">Accueil</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="fonctionnement.html">Comment ça fonctionne</a>
+        <a href="packs.html">Packs d'activation</a>
+        <a href="temoignages.html">Témoignages</a>
+      </div>
+      <div class="foot">
+        <h4>Aide</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="connexion.html">Connexion</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="mot-de-passe-oublie.html">Mot de passe oublié</a>
+      </div>
+      <div class="foot">
+        <h4>Légal</h4>
+        <a href="confidentialite.html">Politique de confidentialité</a>
+        <a href="cgu.html">Conditions générales d'utilisation</a>
+        <p style="margin-top:14px">© 2026 GOOGLE TV AFRIQUE.<br>Tous droits réservés.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GOOGLE TV AFRIQUE — Regardez des vidéos. Gagnez de l'argent.</span>
+      <span>Site de démonstration — aucune transaction réelle.</span>
+    </div>
+  </div>
+</footer>
 
 <div id="toastWrap"></div>
 <script>
@@ -1417,589 +1309,6 @@ function ensureDemoUser(){
   side.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSide));
   addEventListener('keydown', e => { if(e.key === 'Escape') closeSide(); });
 })();
-
-/* ===== état global (déclaré en tête pour éviter la zone morte temporelle) ===== */
-let vCat = 'Tous', vQuery = '';
-const CATS = ['Tous','Film','Musique','Sport','Cuisine','News','Mode','Voyage','Finance','Éducation'];
-const V_PAGE = 12;          // nombre de vidéos chargées par lot (12)
-let vVisible = V_PAGE;      // combien afficher actuellement
-
-/* ===== navigation ===== */
-const VIEW_TITLES = {accueil:'Accueil', favoris:'Favoris', compte:'Mon Compte'};
-function goView(v){
-  document.querySelectorAll('.view').forEach(x => x.classList.remove('on'));
-  document.querySelectorAll('.m-nav button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
-  const el = document.getElementById('view-' + v);
-  if(el) el.classList.add('on');
-  if(v === 'favoris') renderFavs();
-  if(v === 'accueil'){ renderVideos(); renderNotifAlert(); }
-  if(v === 'compte'){ fillProfile(); renderActivites(); renderPaiements(); renderRetraits(); renderNotifs(); }
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-document.querySelectorAll('.m-nav button').forEach(b => b.addEventListener('click', () => goView(b.dataset.v)));
-document.querySelectorAll('.subtab').forEach(b => b.addEventListener('click', () => {
-  document.querySelectorAll('.subtab').forEach(x => x.classList.toggle('on', x === b));
-  document.querySelectorAll('.sub-view').forEach(x => x.classList.toggle('on', x.id === 'sub-' + b.dataset.sub));
-}));
-document.getElementById('mLogout').addEventListener('click', doLogout);
-
-/* ===== session ===== */
-let ME = null;
-function refreshMe(){ const s = getSession(); ME = (s && getUsers().find(u => u.id === s.userId)) || null; return ME; }
-
-/* Rendu conditionnel STRICT :
-   - status PENDING (en_attente)  → SEUL l'écran d'attente WhatsApp
-   - status ACTIVE                → SEULE l'interface membre (solde + filtres + grille)
-   Aucun écran ne cohabite avec l'autre. */
-(async function initMember(){
-  await (window.apiBootPromise || Promise.resolve());   // attend l'API (prod) si présente
-  // Accès démo direct : ?demo=1 crée/connecte le compte démo dans CETTE page
-  // (fonctionne même dans l'aperçu où le localStorage n'est pas persistant)
-  if(!getSession() && location.search.indexOf('demo=1') !== -1){
-    const d = ensureDemoUser();
-    setSession({userId: d.id, date: today()});
-  }
-  refreshMe();
-  const gate = document.getElementById('gateScreen');
-  const pending = document.getElementById('pendingScreen');
-  const shell = document.getElementById('appShell');
-  if(!ME){
-    gate.style.display = 'block';
-    pending.style.display = 'none';
-    shell.style.display = 'none';
-    return;
-  }
-  if(ME.status !== 'actif'){
-    // PENDING : uniquement l'écran d'attente WhatsApp
-    pending.style.display = 'block';
-    gate.style.display = 'none';
-    shell.style.display = 'none';
-    startActivationPoll();
-    return;
-  }
-  // ACTIVE : uniquement l'interface membre finale, tout le reste masqué
-  pending.style.display = 'none';
-  gate.style.display = 'none';
-  shell.style.display = 'block';
-  showApp();
-})();
-
-let pollTimer = null;
-function startActivationPoll(){
-  pollTimer = setInterval(() => {
-    const s = getSession();
-    if(!s) return;
-    const u = getUsers().find(x => x.id === s.userId);
-    if(u && u.status === 'actif'){
-      clearInterval(pollTimer);
-      toast('Votre compte a été activé ! Bienvenue 🎉', 'green');
-      setTimeout(() => location.reload(), 900);
-    }
-  }, 4000);
-}
-function showApp(){
-  document.getElementById('appShell').style.display='block';
-  document.getElementById('pendingScreen').style.display='none';
-  // Bonjour, {user.name} 👋 — nom dynamique du membre connecté
-  const w = document.getElementById('wName');
-  if(w) w.textContent = ME.nom;
-  goView('accueil');      // active la vue Accueil (filtres + grille) visible
-  updateBalance();
-  updateNotifBadge();
-}
-
-/* ===== badge du nombre de nouvelles notifications ===== */
-function updateNotifBadge(){
-  const el = document.getElementById('navNotifBadge');
-  if(!el) return;
-  const n = ME ? (ME.notifs || []).filter(x => !x.lu).length : 0;
-  el.textContent = n;
-  el.style.display = n > 0 ? 'flex' : 'none';
-}
-function updateBalance(){
-  const b = document.getElementById('mBalance');
-  if(b) b.textContent = '💰 ' + fmtN(ME ? ME.solde : 0) + ' F';
-}
-
-/* ===== alertes ===== */
-function renderNotifAlert(){
-  const el = document.getElementById('notifAlert');
-  if(!el) return;
-  // Compte ACTIVE : on exclut les notifications « en attente » (paiement pack, activation…)
-  // pour ne laisser que les vraies annonces (maintenance, mise à jour, promo, générales).
-  const PENDING_RE = /en attente|attente de validation|attente d'activation/i;
-  const unread = (ME.notifs || []).filter(n => !n.lu && !PENDING_RE.test(n.titre || ''));
-  if(!unread.length){ el.style.display = 'none'; el.innerHTML = ''; return; }
-  const maint = unread.find(n => n.cat === 'maintenance');
-  const show = maint || unread[0];
-  const c = show.cat || 'general';
-  const cls = c === 'maintenance' ? 'maint' : c === 'update' ? 'update' : 'general';
-  const ico = c === 'maintenance' ? '🛠' : c === 'update' ? '🚀' : c === 'promo' ? '🎁' : '🔔';
-  el.style.display = 'flex';
-  el.className = 'notif-alert ' + cls;
-  el.innerHTML = '<div class="na-ico">' + ico + '</div><div><b>' + esc(show.titre) + '</b><p>' + esc(show.texte) + '</p><div class="na-date">' + fmtDate(show.date) + (unread.length > 1 ? ' · +' + (unread.length - 1) + ' notification(s)' : '') + '</div></div>';
-  el.onclick = () => goView('compte') && document.querySelector('.subtab[data-sub="notifs"]').click();
-}
-
-/* ===== filtres + recherche ===== */
-(function initCats(){
-  const w = document.getElementById('vCats');
-  w.innerHTML = CATS.map(c => '<button class="cat-pill' + (c === 'Tous' ? ' on' : '') + '" data-cat="' + c + '">' + c + '</button>').join('');
-  w.querySelectorAll('.cat-pill').forEach(b => b.addEventListener('click', () => {
-    vCat = b.dataset.cat;
-    vVisible = V_PAGE;                 // réinitialiser la pagination
-    w.querySelectorAll('.cat-pill').forEach(x => x.classList.toggle('on', x === b));
-    renderVideos();
-  }));
-  document.getElementById('loadMoreBtn').addEventListener('click', () => {
-    vVisible += V_PAGE;
-    renderVideos();
-  });
-})();
-
-/* Une même vidéo n'est créditée qu'UNE SEULE FOIS par membre */
-function alreadyCredited(vid){
-  const raw = (ME.videosVues && ME.videosVues[vid]) || [];
-  const arr = Array.isArray(raw) ? raw : [raw];
-  return arr.length > 0;
-}
-
-/* ===== cartes vidéo (grille 2 colonnes) — 3 boutons d'action ===== */
-function videoCardHtml(v){
-  const liked = ME && (ME.vuesLike || {})[v.id];
-  const seen  = ME && (ME.vuesSeen || {})[v.id];
-  const fav   = ME && (ME.favoris || []).includes(v.id);
-  const credited = alreadyCredited(v.id);
-  return '<div class="m-card" data-vid="' + v.id + '">' +
-    '<div class="m-thumb">' +
-      '<span class="m-emoji">' + v.emoji + '</span>' +
-      '<img class="m-thumb-img" src="' + v.img + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
-      (credited ? '<span class="m-seen">✓ +' + fmtN(v.recompense) + ' F · Vu</span>' : '') +
-      '<span class="m-cat">' + esc(v.cat).toUpperCase() + '</span>' +
-      '<span class="m-gain">' + fmtN(v.recompense) + ' F</span>' +
-    '</div>' +
-    '<div class="m-title">' + esc(v.titre) + '</div>' +
-    '<div class="m-actions">' +
-      '<button class="m-act like' + (liked ? ' on' : '') + '" data-act="like" data-vid="' + v.id + '" title="J\'aime"><span class="m-ico">❤️</span><span class="m-lbl">J\'aime</span></button>' +
-      '<button class="m-act seen' + (seen ? ' on' : '') + '" data-act="seen" data-vid="' + v.id + '" title="Déjà vu"><span class="m-ico">👁️</span><span class="m-lbl">Déjà vu</span></button>' +
-      '<button class="m-act fav' + (fav ? ' on' : '') + '" data-act="fav" data-vid="' + v.id + '" title="Favori"><span class="m-ico">⭐</span><span class="m-lbl">Favoris</span></button>' +
-    '</div></div>';
-}
-function renderVideos(){
-  if(!ME) return;
-  const grid = document.getElementById('videos-grid');
-  const list = getVideos().filter(v =>
-    (vCat === 'Tous' || v.cat === vCat) &&
-    (!vQuery || v.titre.toLowerCase().includes(vQuery.toLowerCase()))
-  );
-  const shown = list.slice(0, vVisible);           // pagination : les vVisible premières
-  grid.innerHTML = shown.map(v => videoCardHtml(v)).join('') || '<div class="center" style="grid-column:1/-1;padding:40px 0;color:var(--muted)">Aucune vidéo trouvée.</div>';
-  attachCards(grid);
-  // compteur + bouton « Charger plus de vidéos »
-  const row = document.getElementById('loadMoreRow');
-  const btn = document.getElementById('loadMoreBtn');
-  const counter = document.getElementById('videoCounter');
-  const total = list.length;
-  if(total === 0){ row.style.display = 'none'; return; }
-  row.style.display = 'flex';
-  if(shown.length < total){
-    counter.textContent = 'Affichage de ' + shown.length + ' sur ' + total + ' vidéos';
-    counter.classList.remove('done');
-    btn.style.display = '';
-    btn.textContent = 'Charger plus de vidéos (' + Math.min(V_PAGE, total - shown.length) + ')';
-  } else {
-    counter.textContent = 'Toutes les vidéos ont été chargées ✓';
-    counter.classList.add('done');
-    btn.style.display = 'none';
-  }
-}
-function renderFavs(){
-  if(!ME) return;
-  const favs = (ME.favoris || []).map(id => getVideos().find(v => v.id === id)).filter(Boolean);
-  document.getElementById('favCount').textContent = '(' + favs.length + ')';
-  document.getElementById('favEmpty').style.display = favs.length ? 'none' : 'block';
-  const grid = document.getElementById('favGrid');
-  grid.innerHTML = favs.map(v => videoCardHtml(v)).join('');
-  attachCards(grid);
-}
-function attachCards(container){
-  container.querySelectorAll('.m-card').forEach(card => {
-    const vid = card.dataset.vid;
-    card.querySelector('.m-thumb').addEventListener('click', () => playVideo(vid));
-    card.querySelectorAll('[data-act]').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const act = btn.dataset.act;
-        if(act === 'like') likeVideo(vid, btn);
-        else if(act === 'seen') seenVideo(vid, btn);
-        else if(act === 'fav') favVideo(vid, btn);
-      });
-    });
-  });
-}
-
-/* ===== actions : J'aime / Déjà vu / Favoris (sauvegardées par utilisateur) ===== */
-function popAnim(btn){ btn.classList.add('pop'); setTimeout(() => btn.classList.remove('pop'), 350); }
-
-function likeVideo(id, btn){
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.vuesLike = u.vuesLike || {};
-  const v = getVideos().find(x => x.id === id);
-  const on = !u.vuesLike[id];
-  u.vuesLike[id] = on;
-  v.likes = Math.max(0, (v.likes||0) + (on ? 1 : -1));
-  logActivity(u, on ? 'J\'aime' : 'J\'aime retiré', v.titre);
-  saveUsers(users); saveVideos(getVideos()); ME = u;
-  btn.classList.toggle('on', on);
-  popAnim(btn);
-  toast(on ? '❤️ Vidéo aimée !' : 'J\'aime retiré', on ? 'green' : 'blue');
-}
-
-function seenVideo(id, btn){
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.vuesSeen = u.vuesSeen || {};
-  const v = getVideos().find(x => x.id === id);
-  const on = !u.vuesSeen[id];
-  u.vuesSeen[id] = on;
-  logActivity(u, on ? 'Marquée « Déjà vu »' : '« Déjà vu » retiré', v.titre);
-  saveUsers(users); ME = u;
-  btn.classList.toggle('on', on);
-  popAnim(btn);
-  toast(on ? '👁️ Marquée comme déjà vue' : 'Déjà vu retiré', on ? 'blue' : 'blue');
-}
-
-function favVideo(id, btn){
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.favoris = u.favoris || [];
-  const v = getVideos().find(x => x.id === id);
-  const i = u.favoris.indexOf(id);
-  const on = i === -1;
-  if(on) u.favoris.push(id); else u.favoris.splice(i, 1);
-  logActivity(u, on ? 'Favori ajouté' : 'Favori retiré', v.titre);
-  saveUsers(users); ME = u;
-  btn.classList.toggle('on', on);
-  popAnim(btn);
-  toast(on ? '⭐ Ajouté aux favoris !' : 'Retiré des favoris', on ? 'amber' : 'blue');
-}
-let pmTimer = null;                       // minuteur du crédit automatique
-const WATCH_SECONDS = 20;                 // 15 à 30 s : durée avant crédit automatique
-
-function playVideo(id){
-  const v = getVideos().find(x => x.id === id);
-  if(!v) return;
-  document.getElementById('pmScreen').style.background = v.couleur;
-  document.getElementById('pmEmoji').textContent = v.emoji;
-  document.getElementById('pmTitle').textContent = v.titre;
-  document.getElementById('pmMeta').textContent = v.cat + ' · ' + v.dur + ' · ▶ ' + fmtN(v.vues) + ' vues';
-  document.getElementById('pmDesc').textContent = '« ' + v.titre + ' » — catégorie ' + v.cat + '.';
-  document.getElementById('playerModal').classList.add('show');
-
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.videosVues = u.videosVues || {};
-  const gainPossible = !alreadyCredited(id);   // crédit UNIQUE par vidéo et par membre
-  v.vues = (v.vues||0) + 1;
-  saveVideos(getVideos());
-
-  // 1) Montant affiché dans le lecteur
-  const rewardEl = document.getElementById('pmReward');
-  rewardEl.className = 'pm-reward' + (gainPossible ? '' : ' done');
-  rewardEl.innerHTML = gainPossible
-    ? '💰 Récompense : <b>+' + fmtN(v.recompense) + ' F</b>'
-    : '✓ Cette vidéo a déjà été visionnée (crédit déjà reçu)';
-
-  const g = document.getElementById('pmGain');
-  const countEl = document.getElementById('pmCount');
-  const progEl = document.getElementById('pmProg');
-  const progWrap = document.getElementById('pmProgWrap');
-  if(pmTimer){ clearInterval(pmTimer); pmTimer = null; }
-
-  if(gainPossible){
-    // 2) Compte à rebours de WATCH_SECONDS secondes, puis crédit automatique
-    g.textContent = '▶ Regardez la vidéo : le montant sera crédité automatiquement à votre solde.';
-    g.style.color = '#4ade80';
-    countEl.style.display = 'block';
-    progWrap.style.display = 'block';
-    countEl.className = 'pm-count';
-    countEl.textContent = 'Crédit automatique dans ' + WATCH_SECONDS + ' s';
-    progEl.style.width = '0%';
-    let left = WATCH_SECONDS;
-    pmTimer = setInterval(() => {
-      left--;
-      progEl.style.width = Math.round(((WATCH_SECONDS - left) / WATCH_SECONDS) * 100) + '%';
-      if(left <= 0){
-        clearInterval(pmTimer); pmTimer = null;
-        // 3) Crédit automatique du montant
-        u.solde = (u.solde||0) + v.recompense;
-        u.videosVues[id] = u.videosVues[id] || [];
-        u.videosVues[id].push(today());
-        logActivity(u, 'Vidéo regardée', v.titre, v.recompense);
-        saveUsers(users); ME = u;
-        countEl.className = 'pm-count ok';
-        countEl.textContent = '✓ +' + fmtN(v.recompense) + ' F crédités à votre solde !';
-        rewardEl.className = 'pm-reward done';
-        rewardEl.innerHTML = '✓ Crédité : <b>+' + fmtN(v.recompense) + ' F</b>';
-        toast('+' + fmtN(v.recompense) + ' FCFA crédités à votre solde !', 'green');
-        updateBalance();
-        renderVideos();
-      } else {
-        countEl.textContent = 'Crédit automatique dans ' + left + ' s';
-      }
-    }, 1000);
-  } else {
-    g.textContent = '✓ Cette vidéo a déjà été visionnée. Aucun nouveau crédit.';
-    g.style.color = 'var(--muted)';
-    countEl.style.display = 'block';
-    countEl.className = 'pm-count';
-    countEl.textContent = 'Aucun gain pour cette vidéo aujourd\'hui.';
-    progWrap.style.display = 'none';
-  }
-}
-function closePlayer(){
-  document.getElementById('playerModal').classList.remove('show');
-  if(pmTimer){ clearInterval(pmTimer); pmTimer = null; }   // stoppe le compte à rebours si fermeture
-}
-
-/* ===== packs (choisis à l'inscription, modifiables ici) ===== */
-const PACK_DATA = {
-  STANDARD: [
-    {nom:'Niveau 1', prix:5200}, {nom:'Niveau 2', prix:12200}, {nom:'Niveau 3', prix:15200},
-    {nom:'Niveau 4', prix:22000}, {nom:'Niveau 5', prix:30000}
-  ],
-  PREMIUM: [
-    {nom:'VIP 1', prix:40700}, {nom:'VIP 2', prix:50700}, {nom:'VIP 3', prix:70700},
-    {nom:'VIP 4', prix:80700}, {nom:'VIP Max', prix:100000}
-  ],
-  GOLD: [
-    {nom:'G-VIP 1', prix:200000}, {nom:'G-VIP 2', prix:400000}, {nom:'G-VIP 3', prix:800000},
-    {nom:'G-VIP 4', prix:1000000}
-  ]
-};
-let selGamme = null, selLevel = null;
-function pickGamme(g){
-  selGamme = g; selLevel = null;
-  document.querySelectorAll('#packChoice .pack-mini').forEach(p => p.classList.toggle('sel', p.dataset.gamme === g));
-  document.getElementById('levelZone').style.display = 'block';
-  document.getElementById('levelTitle').textContent = g + ' — choisissez votre niveau';
-  document.getElementById('confirmPack').disabled = true;
-  renderLevels();
-}
-function renderLevels(){
-  const lv = document.getElementById('levelList');
-  lv.innerHTML = PACK_DATA[selGamme].map((l, i) =>
-    '<div class="level' + (selLevel === i ? ' sel' : '') + '" onclick="pickLevel(' + i + ')">' +
-    '<span class="l-name">' + esc(l.nom) + '</span><span class="l-price">' + fmtN(l.prix) + ' FCFA</span><span class="radio"></span></div>'
-  ).join('');
-}
-function pickLevel(i){ selLevel = i; renderLevels(); document.getElementById('confirmPack').disabled = false; }
-function confirmPackPay(){
-  if(selGamme == null || selLevel == null) return;
-  const pack = PACK_DATA[selGamme][selLevel];
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.pack = selGamme + ' ' + pack.nom;
-  u.packPrix = pack.prix;
-  u.packStatut = 'en_attente';
-  u.paiements = u.paiements || [];
-  u.paiements.unshift({id:'PAY-' + Date.now().toString(36).toUpperCase(), type:'pack', desc:selGamme + ' ' + pack.nom, montant:pack.prix, date:today(), statut:'en_attente'});
-  u.notifs = u.notifs || [];
-  u.notifs.unshift({id:uid(), titre:'Paiement du pack enregistré', texte:'Votre paiement pour le pack ' + selGamme + ' ' + pack.nom + ' (' + fmtN(pack.prix) + ' FCFA) est en attente de validation.', date:today(), lu:false, cat:'general'});
-  logActivity(u, 'Paiement du pack', selGamme + ' ' + pack.nom, pack.prix);
-  saveUsers(users); ME = u;
-  toast('Paiement enregistré — en attente de validation.', 'amber');
-  renderPackStatus();
-}
-
-/* ===== Mon Compte : profil / paiements / retraits / notifications ===== */
-/* Compte ACTIVE : AUCUNE boîte « paiement en attente », AUCUN badge de statut en attente.
-   Le panneau pack n'apparaît que si le pack est réellement actif. */
-function renderPackStatus(){
-  const box = document.getElementById('packStatusBox');
-  const zone = document.getElementById('packChoiceZone');
-  const panel = document.getElementById('packPanel');
-  if(!box) return;
-  if(ME.packStatut === 'actif'){
-    box.innerHTML = '<div class="alert alert-green"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><div><b>Pack actif : ' + esc(ME.pack) + ' (' + fmtN(ME.packPrix) + ' FCFA)</b><br>Vous bénéficiez de tous les avantages de votre pack.</div></div>';
-    zone.style.display = 'none';
-    if(panel) panel.style.display = 'block';
-  } else {
-    // Utilisateur validé : on supprime totalement toute boîte « en attente » / alerte WhatsApp
-    box.innerHTML = '';
-    zone.style.display = 'none';
-    if(panel) panel.style.display = 'none';
-  }
-}
-function fillProfile(){
-  if(!ME) return;
-  document.getElementById('pAvatar').textContent = ME.nom.charAt(0).toUpperCase();
-  document.getElementById('pNom').textContent = ME.nom;
-  document.getElementById('pPays').textContent = ME.pays;
-  document.getElementById('pTel').textContent = ME.tel;
-  document.getElementById('pEmail').textContent = ME.email;
-  document.getElementById('pStatut').textContent = ME.status === 'actif' ? 'Actif' : ME.status;
-  document.getElementById('pDate').textContent = fmtDate(ME.cree);
-  document.getElementById('pPackChip').textContent = 'Pack : ' + (ME.pack || '—');
-  document.getElementById('eNom').value = ME.nom;
-  document.getElementById('eTel').value = ME.tel;
-  document.getElementById('eEmail').value = ME.email;
-  if(editCsel) editCsel.setDefault(ME.paysCode || 'BJ');
-  renderPackStatus();
-}
-function renderActivites(){
-  if(!ME) return;
-  const list = ME.activites || [];
-  document.getElementById('activitesBody').innerHTML = list.map(a =>
-    '<tr><td><b>' + esc(a.action) + '</b></td><td>' + esc(a.desc || '—') + '</td>' +
-    '<td>' + (a.montant ? '<b style="color:#4ade80">+' + fmtN(a.montant) + ' F</b>' : '<span style="color:var(--muted)">—</span>') + '</td>' +
-    '<td style="font-size:.75rem;color:var(--muted)">' + fmtDate(a.date) + '</td></tr>'
-  ).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--muted)">Aucune activité pour le moment. Regardez des vidéos !</td></tr>';
-}
-function renderPaiements(){
-  if(!ME) return;
-  const list = ME.paiements || [];
-  const pill = s => s === 'valide' ? '<span class="pill pill-green">Validé</span>' :
-    s === 'refuse' ? '<span class="pill pill-red">Refusé</span>' : '<span class="pill pill-amber">En attente de validation</span>';
-  document.getElementById('paiementsBody').innerHTML = list.map(p =>
-    '<tr><td><b>' + esc(p.id) + '</b></td><td>' + esc(p.desc) + '</td><td><b>' + fmtN(p.montant) + ' FCFA</b></td><td>' + fmtDate(p.date) + '</td><td>' + pill(p.statut) + '</td></tr>'
-  ).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--muted)">Aucun paiement pour le moment.</td></tr>';
-}
-function renderRetraits(){
-  if(!ME) return;
-  document.getElementById('wSolde').textContent = fmtN(ME.solde) + ' F';
-  const seuil = 450000;
-  const pct = Math.min(100, Math.round((ME.solde / seuil) * 100));
-  document.getElementById('wProg').style.width = pct + '%';
-  const lbl = document.getElementById('wProgLabel');
-  if(lbl) lbl.textContent = pct + '% du seuil de retrait atteint (' + fmtN(seuil) + ' F)';
-  document.getElementById('wRest').textContent = ME.solde >= seuil ? 'Seuil atteint ✓' : 'Plus que ' + fmtN(seuil - ME.solde) + ' FCFA avant le retrait';
-  const list = ME.retraits || [];
-  const pill = s => ({
-    'en_attente':'<span class="pill pill-amber">En attente</span>',
-    'en_cours':'<span class="pill pill-blue">En cours de traitement</span>',
-    'approuve':'<span class="pill pill-green">Approuvé</span>',
-    'refuse':'<span class="pill pill-red">Refusé</span>',
-    'paye':'<span class="pill pill-green">Payé</span>'
-  })[s] || '<span class="pill pill-gray">' + esc(s) + '</span>';
-  document.getElementById('retraitsBody').innerHTML = list.map(r =>
-    '<tr><td><b>' + esc(r.id) + '</b></td><td><b>' + fmtN(r.montant) + ' FCFA</b></td><td>' + esc(r.telephone || r.numero || r.methode || '—') + '</td><td>' + fmtDate(r.date) + '</td><td>' + pill(r.statut) + '</td></tr>'
-  ).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--muted)">Aucune demande de retrait.</td></tr>';
-}
-/* ---- formulaire de retrait (modale : téléphone + montant + Envoyer la demande) ---- */
-function openWithdraw(){
-  if(!ME) return;
-  askModal({title:'Retirer mes gains', okText:'Envoyer la demande', cancelText:'Annuler', fields:[
-    {id:'tel', label:'Numéro de téléphone', value:ME.tel || '', placeholder:'Ex : 01 23 45 67 89'},
-    {id:'montant', label:'Montant à retirer (FCFA)', placeholder:'Ex : 450000'}
-  ]}).then(v => {
-    if(!v) return;
-    submitWithdraw(parseInt(v.montant, 10), v.tel);
-  });
-}
-function submitWithdraw(montant, telephone){
-  const seuil = 450000;
-  if(!montant || montant < seuil){
-    infoModal('<b>Votre demande de retrait ne peut pas être traitée.</b><br><br>Le montant minimum requis est de <b>450 000 FCFA</b>. Continuez à regarder des vidéos pour augmenter votre solde puis réessayez.', 'Retrait impossible');
-    return;
-  }
-  if(montant > ME.solde){
-    infoModal('<b>Votre solde est insuffisant.</b><br><br>Votre solde actuel est de <b>' + fmtN(ME.solde) + ' FCFA</b>.', 'Retrait impossible');
-    return;
-  }
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  u.retraits = u.retraits || [];
-  u.retraits.unshift({id:'RET-' + Date.now().toString(36).toUpperCase(), montant, telephone: telephone || u.tel || '', methode:'Mobile money', date:today(), statut:'en_attente'});
-  u.notifs = u.notifs || [];
-  u.notifs.unshift({id:uid(), titre:'Demande de retrait enregistrée', texte:'Votre demande de retrait de ' + fmtN(montant) + ' FCFA est en attente d\'examen par l\'administrateur.', date:today(), lu:false, cat:'general'});
-  logActivity(u, 'Demande de retrait', telephone || u.tel || '', montant);
-  saveUsers(users); ME = u;
-  toast('Demande de retrait envoyée !', 'green');
-  updateNotifBadge();
-  renderRetraits();
-}
-function renderNotifs(){
-  if(!ME) return;
-  const list = ME.notifs || [];
-  document.getElementById('notifList').innerHTML = list.map(n =>
-    '<div class="notif' + (n.lu ? '' : ' unread') + '"><div class="n-ico"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div>' + notifCatBadge(n.cat) + '<b>' + esc(n.titre) + '</b><p>' + esc(n.texte) + '</p><div class="n-date">' + fmtDate(n.date) + '</div></div></div>'
-  ).join('') || '<p style="color:var(--muted);padding:20px;text-align:center">Aucune notification.</p>';
-}
-function markAllRead(){
-  const users = getUsers(); const u = users.find(x => x.id === ME.id);
-  (u.notifs || []).forEach(n => n.lu = true);
-  saveUsers(users); ME = u; renderNotifs(); renderNotifAlert(); updateNotifBadge(); toast('Notifications marquées comme lues.', 'blue');
-}
-/* bouton « Retirer mes gains » (toujours accessible) */
-(function(){
-  const btn = document.getElementById('openWithdrawBtn');
-  if(btn) btn.addEventListener('click', openWithdraw);
-})();
-/* formulaire profil */
-(function(){
-  document.getElementById('editForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const nom = document.getElementById('eNom').value.trim();
-    const tel = document.getElementById('eTel').value.trim();
-    const email = document.getElementById('eEmail').value.trim();
-    if(nom.length < 2){ toast('Nom requis.', 'red'); return; }
-    if(tel.replace(/\D/g,'').length < 8){ toast('Téléphone invalide.', 'red'); return; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ toast('E-mail invalide.', 'red'); return; }
-    const users = getUsers(); const u = users.find(x => x.id === ME.id);
-    u.nom = nom; u.tel = tel; u.email = email;
-    if(editCsel) u.pays = editCsel.value.flag + ' ' + editCsel.value.name;
-    logActivity(u, 'Profil modifié', 'Mise à jour des informations personnelles');
-    saveUsers(users); ME = u;
-    toast('Profil mis à jour !', 'green');
-    fillProfile();
-  });
-})();
-/* formulaire mot de passe */
-(function(){
-  document.getElementById('mdpForm').addEventListener('submit', async e => {
-    e.preventDefault();
-    const o = document.getElementById('oPwd').value, n = document.getElementById('nPwd').value, c = document.getElementById('cPwd').value;
-    const fop = document.getElementById('f-opwd'), fnp = document.getElementById('f-npwd'), fcp = document.getElementById('f-cpwd');
-    let ok = true;
-    if(n.length < 6){ fnp.classList.add('error'); ok = false; } else fnp.classList.remove('error');
-    if(n !== c){ fcp.classList.add('error'); ok = false; } else fcp.classList.remove('error');
-    if(!ok){ toast('Vérifiez le nouveau mot de passe.', 'red'); return; }
-    const h = await hashPwd(o);
-    if(ME.pwd !== h){ fop.classList.add('error'); toast('Mot de passe actuel incorrect.', 'red'); return; }
-    fop.classList.remove('error');
-    const users = getUsers(); const u = users.find(x => x.id === ME.id);
-    u.pwd = await hashPwd(n);
-    logActivity(u, 'Mot de passe modifié', '');
-    saveUsers(users); ME = u;
-    toast('Mot de passe modifié avec succès !', 'green');
-    document.getElementById('mdpForm').reset();
-  });
-})();
-
-/* ===== déconnexion (confirmation + redirection connexion) ===== */
-function doLogout(){
-  confirmModal('<b>Voulez-vous vraiment vous déconnecter&nbsp;?</b>', 'Se déconnecter').then(async ok => {
-    if(!ok) return;
-    await clearSession();
-    location.href = 'connexion.html?logout=1';
-  });
-}
-
-/* ===== temps réel (production) : rafraîchit solde + notifications sans recharger ===== */
-(function startRealtime(){
-  if(API_MODE !== 'prod') return;
-  setInterval(async () => {
-    if(!ME) return;
-    try{
-      const me = await apiGet('/api/me');
-      const prevSolde = ME.solde;
-      const prevNotifs = (ME.notifs || []).length;
-      ME = Object.assign(ME, me);
-      if(me.solde !== prevSolde) updateBalance();
-      if((me.notifs || []).length !== prevNotifs){
-        renderNotifs(); renderNotifAlert(); updateNotifBadge();
-      }
-    }catch(e){}
-  }, 10000);
-})();
-
-let editCsel = initCountrySelect('ePays', 'BJ');
 </script>
 </body>
 </html>
