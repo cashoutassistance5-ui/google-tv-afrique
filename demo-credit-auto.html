@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Démo — Crédit automatique 20 s</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#0a0d13;color:#f1f4f9;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 14px}
+  .wrap{max-width:430px;width:100%}
+  h1{font-size:1.1rem;text-align:center;margin-bottom:4px}
+  .sub{color:#96a1b5;font-size:.82rem;text-align:center;margin-bottom:18px}
+
+  /* En-tête (comme l'espace membre) */
+  .m-top{display:flex;align-items:center;justify-content:space-between;background:#0e121b;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 16px;margin-bottom:14px}
+  .m-logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:.95rem}
+  .m-badge{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#ea4335,#c5221f);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem}
+  .m-bal{text-align:right;line-height:1.2}
+  .m-bal span{display:block;font-size:.58rem;color:#96a1b5;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+  .m-bal b{font-size:1.05rem;font-weight:800;color:#f59e0b;white-space:nowrap}
+
+  /* Grille 2 colonnes */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:#141a27;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s}
+  .card:hover{transform:translateY(-2px);border-color:rgba(234,67,53,.5)}
+  .thumb{position:relative;height:100px;display:flex;align-items:center;justify-content:center;background:#141a27;overflow:hidden}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .thumb .emoji{font-size:1.8rem;opacity:.5}
+  .gain{position:absolute;left:8px;bottom:8px;background:linear-gradient(135deg,#f9ab00,#f57f17);color:#141414;font-weight:800;font-size:.66rem;padding:3px 9px;border-radius:99px}
+  .cat{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.58);color:#e2e8f0;font-size:.58rem;font-weight:800;padding:3px 8px;border-radius:99px}
+  .title{padding:9px 10px 3px;font-size:.76rem;font-weight:700;line-height:1.3;min-height:32px}
+  .actions{display:flex;gap:8px;padding:7px 10px 11px}
+  .like{flex:1;border:1px solid rgba(236,72,153,.45);background:rgba(236,72,153,.12);color:#f472b6;border-radius:9px;padding:8px 4px;font-size:.66rem;font-weight:800;cursor:pointer}
+  .pay{flex:1;background:linear-gradient(135deg,#f9ab00,#f57f17);color:#141414;border:none;border-radius:9px;padding:8px 4px;font-size:.66rem;font-weight:800;cursor:pointer}
+
+  /* Modale lecteur */
+  .veil{position:fixed;inset:0;background:rgba(4,7,12,.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:18px}
+  .veil.show{display:flex}
+  .modal{background:#0e121b;border:1px solid rgba(255,255,255,.12);border-radius:18px;width:min(480px,100%);max-height:90vh;overflow-y:auto;padding:22px;animation:pop .25s ease}
+  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+  .m-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:1rem;margin-bottom:14px}
+  .m-x{background:none;border:none;color:#96a1b5;font-size:1.2rem;cursor:pointer}
+  .m-screen{height:190px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ea4335,#7a1c14);font-size:3rem;margin-bottom:14px}
+  .m-title{font-weight:800;font-size:.98rem}
+  .m-meta{font-size:.78rem;color:#96a1b5;margin-top:2px}
+
+  /* Récompense + compte à rebours */
+  .reward{display:flex;align-items:center;gap:8px;background:rgba(249,171,0,.12);border:1px solid rgba(249,171,0,.4);color:#fbbf24;border-radius:12px;padding:11px 14px;margin-top:12px;font-size:.9rem;font-weight:700}
+  .reward b{font-size:1.05rem;color:#fbbf24}
+  .reward.done{background:rgba(52,199,89,.12);border-color:rgba(52,199,89,.4);color:#4ade80}
+  .reward.done b{color:#4ade80}
+  .count{font-size:.82rem;font-weight:800;margin-top:12px;text-align:center}
+  .count.ok{color:#4ade80}
+  .prog{height:9px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:8px}
+  .prog i{display:block;height:100%;background:linear-gradient(135deg,#f9ab00,#f57f17);width:0%;transition:width 1s linear}
+  .note{font-size:.78rem;color:#96a1b5;margin-top:10px}
+  .btn-close{width:100%;margin-top:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#f1f4f9;border-radius:10px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎬 Démo — Crédit automatique après 20 s</h1>
+  <p class="sub">Cliquez sur une vidéo : le montant s'affiche, puis il est crédité au solde après 20 secondes.</p>
+
+  <div class="m-top">
+    <div class="m-logo"><span class="m-badge">▶</span> GOOGLE TV <span style="color:#ea4335">AFRIQUE</span></div>
+    <div class="m-bal"><span>Solde total</span><b id="balance">0 F</b></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- Modale lecteur -->
+<div class="veil" id="veil">
+  <div class="modal">
+    <div class="m-head">Lecture de la vidéo <button class="m-x" onclick="closePlayer()">✕</button></div>
+    <div class="m-screen" id="mScreen">🎬</div>
+    <div class="m-title" id="mTitle">…</div>
+    <div class="m-meta" id="mMeta">…</div>
+    <div class="reward" id="reward">💰 Récompense : <b>+0 F</b></div>
+    <div class="count" id="count">Crédit automatique dans 20 s</div>
+    <div class="prog"><i id="prog"></i></div>
+    <p class="note">Restez sur la vidéo jusqu'à la fin du compte à rebours pour recevoir le montant. (2 vues max / jour / vidéo)</p>
+    <button class="btn-close" onclick="closePlayer()">Fermer</button>
+  </div>
+</div>
+
+<script>
+// ---- 150 vidéos de démonstration (les 6 premières affichées) ----
+const CATS = ['Film','Musique','Sport','Cuisine','News','Mode','Voyage','Finance','Éducation'];
+const TITLES = {
+  'Film':['Le meilleur du cinéma nigérian','Grande finale du meilleur film','Séries africaines à découvrir','Court-métrage primé','Thriller du Sahel','Comédie : les meilleurs sketches'],
+  'Musique':['Concert live : Afrobeats','Les sons du golfe de Guinée','Rythmes traditionnels','Playlist découverte','Clip exclusif','Festival de musique'],
+  'Sport':['Les plus beaux buts de l\'année','Basket : les highlights','Le marathon de Cotonou','Le football féminin','Sports traditionnels','Boxe : combat du siècle'],
+  'Cuisine':['Le thiéboudienne authentique','Recette : akassa et poisson braisé','La cuisine du Sahel','Cuisine de rue','Recettes de grand-mère','Le poulet yassa']
+};
+const EMOJI = {'Film':'🎬','Musique':'🎤','Sport':'⚽','Cuisine':'🍲','News':'📰','Mode':'👗','Voyage':'🏜️','Finance':'💰','Éducation':'📚'};
+const COULEUR = {'Film':'linear-gradient(135deg,#ea4335,#7a1c14)','Musique':'linear-gradient(135deg,#a855f7,#581c87)','Sport':'linear-gradient(135deg,#22d3ee,#155e75)','Cuisine':'linear-gradient(135deg,#f9ab00,#b45309)','News':'linear-gradient(135deg,#ef4444,#7f1d1d)','Mode':'linear-gradient(135deg,#ec4899,#831843)','Voyage':'linear-gradient(135deg,#34c759,#14532d)','Finance':'linear-gradient(135deg,#f59e0b,#78350f)','Éducation':'linear-gradient(135deg,#4aa8ff,#1e40af)'};
+
+const VIDEOS = [];
+for(let i = 0; i < 150; i++){
+  const cat = CATS[i % CATS.length];
+  const list = TITLES[cat] || TITLES['Film'];
+  const t = list[i % list.length];
+  VIDEOS.push({
+    id: 'v' + (i+1),
+    title: t + (Math.floor(i/list.length) > 0 ? ' — Épisode ' + (Math.floor(i/list.length)+1) : ''),
+    reward: 5000 + ((i * 7) % 22) * 1000,
+    cat,
+    img: 'https://picsum.photos/400/300?random=' + (1000 + i)
+  });
+}
+
+let solde = 0;
+const fmt = n => n.toLocaleString('fr-FR');
+const balanceEl = document.getElementById('balance');
+
+// ---- Grille (les 12 premières) ----
+const grid = document.getElementById('grid');
+grid.innerHTML = VIDEOS.slice(0, 12).map(v => `
+  <div class="card" onclick="openPlayer('${v.id}')">
+    <div class="thumb">
+      <span class="emoji">${EMOJI[v.cat]}</span>
+      <img src="${v.img}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="gain">${fmt(v.reward)} F</span>
+      <span class="cat">${v.cat.toUpperCase()}</span>
+    </div>
+    <div class="title">${v.title}</div>
+    <div class="actions">
+      <button class="like" onclick="event.stopPropagation();alert('♥ J\'aime ajouté (démo)')">♡ J'AIME</button>
+      <button class="pay" onclick="event.stopPropagation();alert('💳 Paiement (démo)')">💳 PAYER</button>
+    </div>
+  </div>`).join('');
+
+// ---- Lecteur + crédit automatique ----
+let timer = null;
+const WATCH_SECONDS = 20;
+
+function openPlayer(id){
+  const v = VIDEOS.find(x => x.id === id);
+  if(!v) return;
+  document.getElementById('mScreen').style.background = COULEUR[v.cat];
+  document.getElementById('mScreen').textContent = EMOJI[v.cat];
+  document.getElementById('mTitle').textContent = v.title;
+  document.getElementById('mMeta').textContent = v.cat + ' · 8 min · ▶ 48 213 vues';
+  document.getElementById('veil').classList.add('show');
+
+  const rewardEl = document.getElementById('reward');
+  const countEl = document.getElementById('count');
+  const progEl = document.getElementById('prog');
+  rewardEl.className = 'reward';
+  rewardEl.innerHTML = '💰 Récompense : <b>+' + fmt(v.reward) + ' F</b>';
+  countEl.className = 'count';
+  countEl.textContent = 'Crédit automatique dans ' + WATCH_SECONDS + ' s';
+  progEl.style.width = '0%';
+  if(timer) clearInterval(timer);
+
+  let left = WATCH_SECONDS;
+  timer = setInterval(() => {
+    left--;
+    progEl.style.width = Math.round(((WATCH_SECONDS - left) / WATCH_SECONDS) * 100) + '%';
+    if(left <= 0){
+      clearInterval(timer); timer = null;
+      // CRÉDIT AUTOMATIQUE
+      solde += v.reward;
+      balanceEl.textContent = fmt(solde) + ' F';
+      countEl.className = 'count ok';
+      countEl.textContent = '✓ +' + fmt(v.reward) + ' F crédités à votre solde !';
+      rewardEl.className = 'reward done';
+      rewardEl.innerHTML = '✓ Crédité : <b>+' + fmt(v.reward) + ' F</b>';
+    } else {
+      countEl.textContent = 'Crédit automatique dans ' + left + ' s';
+    }
+  }, 1000);
+}
+
+function closePlayer(){
+  document.getElementById('veil').classList.remove('show');
+  if(timer){ clearInterval(timer); timer = null; }
+}
+</script>
+</body>
+</html>
