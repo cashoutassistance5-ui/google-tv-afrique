@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrait — GOOGLE TV AFRIQUE</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/bottom-nav.css">
+  <script src="js/auth.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/admin-store.js"></script>
+  <script src="js/api-config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    document.documentElement.classList.add('booting');
+    const MEMBER = window.GTA ? GTA.requireActive() : null;
+    if (MEMBER) document.documentElement.classList.remove('booting');
+  </script>
+  <style>
+    :root {
+      --bg: #0a0d13; --panel: #141a27; --line: rgba(255,255,255,.08);
+      --text: #f1f4f9; --muted: #96a1b5; --red: #ea4335; --amber: #f5c451; --gold: #eab308; --gold-l: #f5c451;
+      --grad: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+    }
+    html.booting body { visibility: hidden; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font-family: inherit; }
+    .wrap { width: min(640px, 92%); margin-inline: auto; }
+    header.top {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(10,13,19,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: .95rem; min-width: 0; }
+    .brand-col { display: flex; flex-direction: column; gap: 2px; line-height: 1.15; min-width: 0; }
+    .logo-badge { width: 32px; height: 32px; border-radius: 9px; background: var(--grad); display: grid; place-items: center; }
+    .logo-badge svg { width: 15px; height: 15px; fill: #fff; margin-left: 2px; }
+    .logo b { color: #ff6a5e; }
+    h1 { font-size: 1.15rem; font-weight: 800; }
+    .avail {
+      margin: 20px 0 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .avail span { color: var(--muted); font-size: .8rem; font-weight: 700; }
+    .avail b { font-size: 1.15rem; color: var(--gold-l); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px 16px;
+    }
+    .field { margin-bottom: 14px; }
+    label { display: block; font-size: .78rem; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+    input, select {
+      width: 100%;
+      background: rgba(10,13,19,.7);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 13px;
+      color: var(--text);
+      font-size: .94rem;
+    }
+    select option, select optgroup { background: #141a27; color: var(--text); }
+    input:focus, select:focus { outline: none; border-color: var(--red); }
+    .err { display: none; color: #f87171; font-size: .76rem; font-weight: 700; margin-top: 6px; }
+    .field.error input, .field.error select { border-color: #ef4444; }
+    .field.error .err { display: block; }
+    .btn {
+      width: 100%; border: none; border-radius: 12px; padding: 14px;
+      background: var(--grad); color: #fff; font-weight: 800; font-size: .96rem; cursor: pointer;
+      box-shadow: 0 10px 26px -8px rgba(234, 67, 53, 0.65);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--muted); border: 1px solid var(--line);
+      margin-top: 12px;
+    }
+    .hint { color: var(--muted); font-size: .78rem; margin-top: 10px; line-height: 1.45; }
+    h2 { font-size: 1rem; margin: 20px 0 10px; }
+    .tx { list-style: none; display: grid; gap: 8px; }
+    .tx li {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px;
+    }
+    .tx small { display: block; color: var(--muted); font-size: .75rem; }
+    .st { display: inline-block; border-radius: 999px; padding: 3px 8px; font-size: .72rem; font-weight: 800; }
+    .st-wait { background: rgba(251, 146, 60, .18); color: #fdba74; }
+    .st-ok { background: rgba(34, 197, 94, .18); color: #4ade80; }
+    .st-no { background: rgba(248, 113, 113, .16); color: #fca5a5; }
+    .hello { font-size: .7rem; font-weight: 700; color: #c5cddc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: min(62vw, 280px); }
+    .hello b { color: #fff; }
+    .done {
+      display: none;
+      text-align: center;
+      padding: 8px 4px 4px;
+    }
+    .done.show { display: block; }
+    .done-ico {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px;
+      background: rgba(251, 146, 60, .16); border: 1px solid rgba(251, 146, 60, .35);
+      display: grid; place-items: center; font-size: 1.4rem;
+    }
+    .done h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .done p { color: var(--muted); font-size: .86rem; line-height: 1.5; }
+    .done .recap {
+      margin: 14px 0 4px; text-align: left;
+      background: rgba(10,13,19,.55); border: 1px solid var(--line);
+      border-radius: 14px; padding: 12px 14px;
+    }
+    .done .recap div { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; font-size: .86rem; }
+    .done .recap span { color: var(--muted); }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<main class="page-main pb-20">
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="espace.html">
+        <span class="logo-badge"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-9.52-5.86A1 1 0 0 0 8 5.14Z"/></svg></span>
+        <span class="brand-col">
+          <span>GOOGLE <em>TV</em> <b>AFRIQUE</b></span>
+          <span class="hello" id="welcome">Bienvenue</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="avail">
+      <span>Disponible</span>
+      <b id="avail">0 FCFA</b>
+    </div>
+
+    <form class="card" id="form" novalidate>
+      <div id="formFields">
+        <div class="field" id="f-amount">
+          <label for="amount">Montant (FCFA)</label>
+          <input type="number" id="amount" min="1000" step="1000" placeholder="Montant à retirer">
+          <div class="err" id="amountErr">Montant minimum insuffisant.</div>
+        </div>
+
+        <div class="field" id="f-method">
+          <label for="method">Moyen de paiement</label>
+          <select id="method">
+            <option value="">-- Choisir un moyen --</option>
+            <optgroup label="Côte d'Ivoire / UEMOA (XOF)">
+              <option value="Wave (Côte d'Ivoire)">Wave</option>
+              <option value="Orange Money (Côte d'Ivoire)">Orange Money</option>
+              <option value="MTN Mobile Money (Côte d'Ivoire)">MTN Mobile Money</option>
+              <option value="Moov Money (Côte d'Ivoire)">Moov Money</option>
+            </optgroup>
+            <optgroup label="Cameroun / Afrique centrale (XAF)">
+              <option value="MTN Mobile Money (Cameroun)">MTN Mobile Money</option>
+              <option value="Orange Money (Cameroun)">Orange Money</option>
+              <option value="Express Union (Cameroun)">Express Union</option>
+            </optgroup>
+            <optgroup label="Sénégal">
+              <option value="Wave (Sénégal)">Wave</option>
+              <option value="Orange Money (Sénégal)">Orange Money</option>
+              <option value="Free Money (Sénégal)">Free Money</option>
+            </optgroup>
+            <optgroup label="Bénin / Togo / Burkina / Mali / Niger">
+              <option value="MTN Mobile Money (UEMOA)">MTN Mobile Money</option>
+              <option value="Moov Money (UEMOA)">Moov Money</option>
+              <option value="Orange Money (UEMOA)">Orange Money</option>
+              <option value="Wave (UEMOA)">Wave</option>
+              <option value="Celtiis Money (Bénin)">Celtiis Money</option>
+            </optgroup>
+            <optgroup label="RDC">
+              <option value="M-Pesa (RDC)">M-Pesa</option>
+              <option value="Orange Money (RDC)">Orange Money</option>
+              <option value="Airtel Money (RDC)">Airtel Money</option>
+            </optgroup>
+            <optgroup label="Guinée">
+              <option value="Orange Money (Guinée)">Orange Money</option>
+              <option value="MTN Mobile Money (Guinée)">MTN Mobile Money</option>
+            </optgroup>
+            <optgroup label="Ghana">
+              <option value="MTN Mobile Money (Ghana)">MTN Mobile Money</option>
+              <option value="Vodafone Cash (Ghana)">Vodafone Cash</option>
+              <option value="AirtelTigo (Ghana)">AirtelTigo</option>
+            </optgroup>
+            <optgroup label="Kenya / Afrique de l'Est">
+              <option value="M-Pesa (Kenya)">M-Pesa</option>
+              <option value="Airtel Money (Afrique de l'Est)">Airtel Money</option>
+            </optgroup>
+            <optgroup label="International / Carte / Crypto">
+              <option value="Carte Bancaire (Visa/Mastercard)">Carte Bancaire (Visa/Mastercard)</option>
+              <option value="USDT (TRC20)">USDT (TRC20)</option>
+            </optgroup>
+          </select>
+          <div class="err">Veuillez choisir un moyen.</div>
+        </div>
+
+        <div class="field" id="f-phone">
+          <label for="phone" id="phoneLabel">Numéro de réception</label>
+          <input type="text" id="phone" placeholder="Ex: +225 05 00 00 00 00" autocomplete="tel">
+          <div class="err" id="phoneErr">Indiquez le numéro du portefeuille.</div>
+        </div>
+
+        <button class="btn" type="submit" id="submitBtn">Valider le retrait</button>
+</div>
+
+      <div class="done" id="doneBox">
+        <div class="done-ico">✓</div>
+        <h3>Demande soumise avec succès</h3>
+        <p>Votre retrait a été enregistré. Il sera traité par l’administrateur.</p>
+        <div style="margin:12px 0 2px"><span class="st st-wait">En attente</span></div>
+        <div class="recap">
+          <div><span>Montant</span><b id="doneAmount">—</b></div>
+          <div><span>Moyen</span><b id="doneMethod">—</b></div>
+          <div><span>Réception</span><b id="donePhone">—</b></div>
+          <div><span>Statut</span><b>En attente</b></div>
+        </div>
+        <button class="btn btn-ghost" type="button" id="newWd">Nouvelle demande</button>
+      </div>
+    </form>
+
+    <h2>Demandes récentes</h2>
+    <ul class="tx" id="list"></ul>
+  </div>
+</main>
+<script src="js/brand.js"></script>
+<script>
+GTA.renderBottomNav('retrait');
+
+function memberMin(user) {
+  if (window.GTA && typeof GTA.minWithdraw === 'function') return GTA.minWithdraw(user);
+  const custom = user && Number(user.minWithdraw);
+  if (Number.isFinite(custom) && custom > 0) return custom;
+  return (window.GTA && GTA.MIN_WITHDRAW) || 350000;
+}
+
+function fmt(n) {
+  return new Intl.NumberFormat('fr-FR').format(n || 0) + ' FCFA';
+}
+
+function wdMeta(st) {
+  if (st === 'approved' || st === 'paid') return { label: 'Validé', cls: 'st-ok' };
+  if (st === 'rejected') return { label: 'Refusé', cls: 'st-no' };
+  return { label: 'En attente', cls: 'st-wait' };
+}
+
+function paint(user) {
+  document.getElementById('avail').textContent = fmt(user.balance);
+  const rows = (user.tx || []).filter((t) => t.type === 'withdraw');
+  const list = document.getElementById('list');
+  if (!rows.length) {
+    list.innerHTML = '<li style="color:#96a1b5">Aucun retrait pour le moment.</li>';
+    return;
+  }
+  list.innerHTML = rows.slice(0, 8).map((t) => {
+    const d = new Date(t.at);
+    const when = isNaN(d) ? '' : d.toLocaleString('fr-FR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+    const meta = wdMeta(t.status);
+    return `<li>
+      <div><b>${fmt(t.amount)}</b><small>${t.method || t.label} · ${t.phone || ''}${t.adminMessage ? ' · ' + t.adminMessage : ''}</small></div>
+      <div style="text-align:right"><span class="st ${meta.cls}">${meta.label}</span><small>${when}</small></div>
+    </li>`;
+  }).join('');
+}
+
+function showDone(val, method, dest) {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('doneAmount').textContent = fmt(val);
+  document.getElementById('doneMethod').textContent = method;
+  document.getElementById('donePhone').textContent = dest;
+  document.getElementById('doneBox').classList.add('show');
+}
+
+function showForm() {
+  document.getElementById('doneBox').classList.remove('show');
+  document.getElementById('formFields').classList.remove('hidden');
+  document.getElementById('amount').value = '';
+  document.getElementById('phone').value = '';
+  document.getElementById('method').selectedIndex = 0;
+  ['f-amount', 'f-method', 'f-phone'].forEach(function (id) {
+    document.getElementById(id).classList.remove('error');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!MEMBER) return;
+  const hello = document.getElementById('welcome');
+  if (hello) {
+    const live = (typeof GTA.currentUser === 'function' && GTA.currentUser()) || MEMBER || {};
+    const name = (typeof GTA.displayName === 'function' ? GTA.displayName(live) : (live.fullname || 'Membre'));
+    hello.innerHTML = 'Bienvenue, <b>' + String(name).replace(/</g, '') + '</b>';
+  }
+  let user = GTA.getWalletUser(MEMBER.email) || GTA.ensureWallet(MEMBER);
+  let MIN_WD = memberMin(user);
+  const amountInput = document.getElementById('amount');
+  function applyMinUi() {
+    MIN_WD = memberMin(user);
+    if (amountInput) {
+      amountInput.min = String(MIN_WD);
+      amountInput.placeholder = 'Ex: ' + new Intl.NumberFormat('fr-FR').format(MIN_WD);
+    }
+    const err = document.getElementById('amountErr');
+    if (err) err.textContent = 'Montant minimum : ' + fmt(MIN_WD) + '.';
+  }
+  applyMinUi();
+  paint(user);
+
+  const methodEl = document.getElementById('method');
+  const phoneEl = document.getElementById('phone');
+  const phoneLabel = document.getElementById('phoneLabel');
+  const phoneErr = document.getElementById('phoneErr');
+
+  methodEl.addEventListener('change', () => {
+    const v = methodEl.value;
+    if (v.indexOf('USDT') !== -1) {
+      phoneLabel.textContent = 'Adresse USDT (TRC20)';
+      phoneEl.placeholder = 'Ex: Txxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+      phoneErr.textContent = 'Indiquez l’adresse du portefeuille USDT.';
+    } else if (v.indexOf('Carte') !== -1) {
+      phoneLabel.textContent = 'Nom et référence carte / IBAN';
+      phoneEl.placeholder = 'Ex: Nom + IBAN ou référence';
+      phoneErr.textContent = 'Indiquez les coordonnées de réception.';
+    } else {
+      phoneLabel.textContent = 'Numéro de réception';
+      phoneEl.placeholder = 'Ex: +225 05 00 00 00 00';
+      phoneErr.textContent = 'Indiquez le numéro du portefeuille.';
+    }
+  });
+
+  document.getElementById('newWd').addEventListener('click', showForm);
+
+  document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const amount = document.getElementById('amount');
+    const method = document.getElementById('method');
+    const phone = document.getElementById('phone');
+    let valid = true;
+    user = GTA.getWalletUser(MEMBER.email) || user;
+    MIN_WD = memberMin(user);
+
+    const val = Number(amount.value);
+    const tooSmall = !Number.isFinite(val) || val < MIN_WD;
+    const tooBig = Number.isFinite(val) && val > (user.balance || 0);
+    document.getElementById('f-amount').classList.toggle('error', tooSmall || tooBig);
+    if (tooSmall) {
+      document.getElementById('amountErr').textContent = 'Montant minimum : ' + fmt(MIN_WD) + '.';
+      valid = false;
+    } else if (tooBig) {
+      document.getElementById('amountErr').textContent = 'Le montant dépasse votre solde disponible.';
+      valid = false;
+    }
+
+    document.getElementById('f-method').classList.toggle('error', !method.value);
+    if (!method.value) valid = false;
+
+    document.getElementById('f-phone').classList.toggle('error', !phone.value.trim());
+    if (!phone.value.trim()) valid = false;
+
+    if (!valid) return;
+
+    const dest = phone.value.trim();
+    const moyen = method.value;
+    const res = GTA.requestWithdraw(MEMBER.email, val, moyen, dest);
+    if (res.code === 'min') {
+      document.getElementById('f-amount').classList.add('error');
+      document.getElementById('amountErr').textContent = 'Montant minimum : ' + fmt(MIN_WD) + '.';
+      return;
+    }
+    if (res.code === 'funds') {
+      document.getElementById('f-amount').classList.add('error');
+      document.getElementById('amountErr').textContent = 'Le montant dépasse votre solde disponible.';
+      return;
+    }
+    if (!res.ok) return;
+
+    user = res.user;
+    showDone(val, moyen, dest);
+    paint(user);
+  });
+});
+</script>
+</body>
+</html>

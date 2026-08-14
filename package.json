@@ -1,0 +1,22 @@
+{
+  "name": "google-tv-afrique",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GOOGLE TV AFRIQUE — site + API multi-utilisateurs (Render + MongoDB Atlas)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^4.21.2",
+    "mongoose": "^8.24.3",
+    "pg": "^8.23.0"
+  }
+}

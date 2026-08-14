@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil — GOOGLE TV AFRIQUE</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/bottom-nav.css">
+  <script src="js/auth.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/admin-store.js"></script>
+  <script src="js/api-config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    document.documentElement.classList.add('booting');
+    const MEMBER = window.GTA ? GTA.requireActive() : null;
+    if (MEMBER) document.documentElement.classList.remove('booting');
+  </script>
+  <style>
+    :root {
+      --bg: #0a0d13; --panel: #141a27; --line: rgba(255,255,255,.08);
+      --text: #f1f4f9; --muted: #96a1b5; --red: #ea4335;
+      --grad: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+    }
+    html.booting body { visibility: hidden; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(640px, 92%); margin-inline: auto; }
+    header.top {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(10,13,19,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: .95rem; min-width: 0; }
+    .brand-col { display: flex; flex-direction: column; gap: 2px; line-height: 1.15; min-width: 0; }
+    .logo-badge { width: 32px; height: 32px; border-radius: 9px; background: var(--grad); display: grid; place-items: center; }
+    .logo-badge svg { width: 15px; height: 15px; fill: #fff; margin-left: 2px; }
+    .logo b { color: #ff6a5e; }
+    h1 { font-size: 1.15rem; font-weight: 800; }
+    .hello { font-size: .7rem; font-weight: 700; color: #c5cddc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: min(62vw, 280px); }
+    .hello b { color: #fff; }
+    .hero-p {
+      text-align: center; padding: 28px 0 10px;
+    }
+    .av {
+      width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 12px;
+      background: var(--grad); display: grid; place-items: center;
+      font-size: 1.7rem; font-weight: 800;
+    }
+    .hero-p h2 { font-size: 1.25rem; }
+    .hero-p p { color: var(--muted); font-size: .88rem; margin-top: 4px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 16px; overflow: hidden; margin: 16px 0;
+    }
+    .row {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 13px 16px; border-bottom: 1px solid var(--line); font-size: .9rem;
+    }
+    .row:last-child { border-bottom: none; }
+    .row span { color: var(--muted); }
+    .row b { font-weight: 700; text-align: right; }
+    .actions { display: grid; gap: 10px; margin-top: 8px; }
+    .btn {
+      display: block; text-align: center; border-radius: 12px; padding: 13px;
+      font-weight: 800; font-size: .92rem;
+    }
+    .btn-wa { background: #25d366; color: #fff; }
+    .btn-out { background: transparent; border: 1px solid rgba(248,113,113,.35); color: #fca5a5; }
+  </style>
+</head>
+<body>
+<main class="page-main pb-20">
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="espace.html">
+        <span class="logo-badge"><svg viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11-6.86a1 1 0 0 0 0-1.7l-9.52-5.86A1 1 0 0 0 8 5.14Z"/></svg></span>
+        <span class="brand-col">
+          <span>GOOGLE <em>TV</em> <b>AFRIQUE</b></span>
+          <span class="hello" id="welcome">Bienvenue</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="hero-p">
+      <div class="av" id="av">M</div>
+      <h2 id="name">Membre</h2>
+      <p id="mail">—</p>
+    </div>
+
+    <div class="card">
+      <div class="row"><span>Téléphone</span><b id="phone">—</b></div>
+      <div class="row"><span>Pays</span><b id="country">—</b></div>
+      <div class="row"><span>Pack</span><b id="pack">—</b></div>
+      <div class="row"><span>Statut</span><b id="status">Activé</b></div>
+    </div>
+
+    <div class="card" id="notifBox">
+      <div class="row"><span>Notifications</span><b id="nCount">0</b></div>
+    </div>
+    <ul id="notifs" style="list-style:none;display:grid;gap:8px;margin:0 0 16px"></ul>
+
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/2250565564257" data-whatsapp="1" data-wa-text="Bonjour, j'ai besoin d'aide GOOGLE TV AFRIQUE." target="_blank" rel="noopener noreferrer">WhatsApp +225 05 65 56 42 57</a>
+      <a class="btn btn-out" href="#" id="logout">Se déconnecter</a>
+    </div>
+  </div>
+</main>
+<script src="js/brand.js"></script>
+<script>
+GTA.renderBottomNav('profil');
+const COUNTRIES = {
+  CI: "Côte d'Ivoire", BF: 'Burkina Faso', ML: 'Mali', SN: 'Sénégal',
+  BJ: 'Bénin', TG: 'Togo', NE: 'Niger', CM: 'Cameroun', GA: 'Gabon',
+  CG: 'Congo', CD: 'RDC', GN: 'Guinée', OTHER: 'Autre pays'
+};
+document.addEventListener('DOMContentLoaded', () => {
+  if (!MEMBER) return;
+  const live = (typeof GTA.currentUser === 'function' && GTA.currentUser()) || MEMBER || {};
+  const name = (typeof GTA.displayName === 'function' ? GTA.displayName(live) : (live.fullname || MEMBER.fullname || 'Membre'));
+  const hello = document.getElementById('welcome');
+  if (hello) hello.innerHTML = 'Bienvenue, <b>' + String(name).replace(/</g, '') + '</b>';
+  document.getElementById('av').textContent = String(name || 'M').charAt(0).toUpperCase();
+  document.getElementById('name').textContent = live.fullname || MEMBER.fullname || 'Membre';
+  document.getElementById('mail').textContent = MEMBER.email || '';
+  document.getElementById('phone').textContent = MEMBER.phone || '—';
+  document.getElementById('country').textContent = COUNTRIES[MEMBER.country] || MEMBER.country || '—';
+  document.getElementById('pack').textContent = MEMBER.packLabel || MEMBER.pack || '—';
+  document.getElementById('status').textContent = MEMBER.status === 'active' ? 'Activé' : 'En attente';
+  const notifs = GTA.memberNotifs(MEMBER.email) || [];
+  document.getElementById('nCount').textContent = notifs.filter((n) => !n.read).length + ' non lues';
+  document.getElementById('notifs').innerHTML = notifs.slice(0, 12).map((n) => {
+    return '<li style="background:#141a27;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px">' +
+      '<strong>' + (n.title || 'Message') + '</strong>' +
+      '<div style="color:#96a1b5;font-size:.85rem;margin-top:4px">' + (n.message || '') + '</div>' +
+      '<small style="color:#96a1b5">' + (n.at ? new Date(n.at).toLocaleString('fr-FR') : '') + '</small></li>';
+  }).join('') || '<li style="color:#96a1b5">Aucune notification.</li>';
+  notifs.forEach((n) => { if (!n.read) GTA.markNotifRead(MEMBER.email, n.id); });
+
+  document.getElementById('logout').addEventListener('click', (e) => {
+    e.preventDefault();
+    GTA.clearSession();
+    location.href = 'index.html';
+  });
+});
+</script>
+</body>
+</html>

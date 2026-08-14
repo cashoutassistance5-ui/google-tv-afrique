@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Render + MongoDB — GOOGLE TV AFRIQUE</title>
+  <style>
+    :root { --bg:#0a0d13; --panel:#141a27; --line:rgba(255,255,255,.08); --text:#f1f4f9; --muted:#96a1b5; --gold:#f5c451; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.55; padding:22px 16px 80px; }
+    .wrap { width:min(680px,100%); margin:0 auto; }
+    h1 { font-size:1.3rem; margin:8px 0 12px; }
+    h2 { font-size:1.05rem; margin:22px 0 10px; }
+    p,li { color:var(--muted); }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; margin:12px 0; }
+    .n { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:8px; background:linear-gradient(135deg,#ea4335,#c5221f); color:#fff; font-weight:800; font-size:.78rem; margin-right:8px; }
+    code { background:#0a0d13; border:1px solid var(--line); border-radius:6px; padding:1px 6px; color:var(--gold); font-size:.84rem; word-break:break-all; }
+    a { color:#ff6a5e; }
+    pre { background:#0a0d13; border:1px solid var(--line); border-radius:10px; padding:12px; overflow:auto; color:#e2e8f0; font-size:.8rem; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Un seul admin, tous les membres</h1>
+    <p>Netlify garde le site. Render + MongoDB Atlas gardent les comptes. L’admin voit alors tout le monde.</p>
+
+    <div class="card">
+      <h2>Routes API créées</h2>
+      <ul style="padding-left:18px">
+        <li><code>POST /api/register</code> — inscription</li>
+        <li><code>POST /api/login</code> — connexion</li>
+        <li><code>POST /api/withdraw</code> — demande de retrait</li>
+        <li><code>GET /api/admin/members</code> — tous les membres</li>
+        <li><code>GET /api/admin/withdrawals</code> — tous les retraits</li>
+        <li><code>PUT /api/admin/withdrawals/:id</code> — valider / refuser un retrait</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>1. MongoDB Atlas (gratuit)</h2>
+      <p><span class="n">1</span> Créez un compte sur <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="noopener">mongodb.com/cloud/atlas</a></p>
+      <p style="margin-top:8px"><span class="n">2</span> Créez un cluster <strong>M0 Free</strong></p>
+      <p style="margin-top:8px"><span class="n">3</span> Database Access : utilisateur + mot de passe</p>
+      <p style="margin-top:8px"><span class="n">4</span> Network Access : ajoutez <code>0.0.0.0/0</code> (Render)</p>
+      <p style="margin-top:8px"><span class="n">5</span> Connect → Drivers → copiez l’URI :<br>
+      <code>mongodb+srv://USER:MOTDEPASSE@cluster0.xxxxx.mongodb.net/gta?retryWrites=true&w=majority</code></p>
+    </div>
+
+    <div class="card">
+      <h2>2. Render (backend)</h2>
+      <p><span class="n">1</span> Mettez ce projet sur GitHub (index.html à la racine)</p>
+      <p style="margin-top:8px"><span class="n">2</span> <a href="https://dashboard.render.com" target="_blank" rel="noopener">dashboard.render.com</a> → <strong>New → Web Service</strong></p>
+      <p style="margin-top:8px"><span class="n">3</span> Réglages :</p>
+      <ul style="padding-left:18px;margin-top:6px">
+        <li>Runtime : Node</li>
+        <li>Build : <code>npm install</code></li>
+        <li>Start : <code>npm start</code></li>
+        <li>Plan : Free</li>
+      </ul>
+      <p style="margin-top:8px"><span class="n">4</span> Variables d’environnement :</p>
+<pre>NODE_ENV=production
+MONGODB_URI=mongodb+srv://USER:MOTDEPASSE@cluster0.xxxxx.mongodb.net/gta
+CORS_ORIGIN=https://iridescent-cactus-543a96.netlify.app</pre>
+      <p style="margin-top:8px"><span class="n">5</span> Deploy. Notez l’URL : <code>https://xxxx.onrender.com</code></p>
+      <p style="margin-top:8px">Testez : <code>https://xxxx.onrender.com/api/health</code> doit afficher <code>"cloud": true</code></p>
+    </div>
+
+    <div class="card">
+      <h2>3. Relier Netlify au backend</h2>
+      <p>Dans <code>js/api-config.js</code>, mettez l’URL Render :</p>
+<pre>window.GTA_API = 'https://xxxx.onrender.com';</pre>
+      <p style="margin-top:8px">Puis redéployez le ZIP sur Netlify.</p>
+    </div>
+
+    <div class="card">
+      <h2>Comptes</h2>
+      <p>Admin : <code>admin@googletvafr.com</code> / <code>GTA2026</code><br>
+      Démo : <code>demo@googletvafr.com</code> / <code>demo123</code></p>
+      <p style="margin-top:8px">Changez le mot de passe admin dès que c’est en ligne.</p>
+    </div>
+  </div>
+</body>
+</html>
