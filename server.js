@@ -4,9 +4,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
-const dbmod = require('./db');
-const mongo = require('./mongo');
-const { clampReward } = require('./seed');
+const dbmod = require('./server/db');
+const mongo = require('./server/mongo');
+const { clampReward } = require('./server/seed');
 
 const { load, boot, mode } = dbmod;
 function save(db) {
